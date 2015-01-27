@@ -18,7 +18,7 @@ namespace HWWilson
         protected void Page_Load(object sender, EventArgs e)
         {
             Products myProds = new Products();
-            SqlDataReader myDataReader = myProds.GetProducts();
+            SqlDataReader myDataReader = myProds.GetProduct();
             gvProducts.DataSource = myDataReader;
 
             // Or a more efficient coding recognises that myHouse.GetProducts() returns a DataReader.

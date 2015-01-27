@@ -10,10 +10,9 @@
     <asp:TextBox ID="TextProdStockLevel" width="150" runat="server"></asp:TextBox><br />
     <asp:Label ID="LblProdStockCode" width="150" runat="server" Text="Stock Code"></asp:Label>
     <asp:TextBox ID="TextProdStockCode" width="150" runat="server"></asp:TextBox><br />
-     <asp:Label ID="LblProdCatID" width="150" runat="server" Text="Category ID"></asp:Label>
-    <asp:TextBox ID="TextProdCatID" width="150" runat="server"></asp:TextBox><br />
-
-     <asp:Button ID="ProdSubmit" onclick="ProdSubmit_Click" runat="server" Text="Submit Product"  /><br /><br /><br /><br />
+    <asp:DropDownList ID="DDLProdCat" runat="server" DataSourceID="SqlDataSource1" DataTextField="prod_cat_desc" DataValueField="prod_cat_id"></asp:DropDownList>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HWWilsonConnectionString %>" SelectCommand="SELECT [prod_cat_desc], [prod_cat_id] FROM [tProductCategory]"></asp:SqlDataSource>
+    <asp:Button ID="ProdSubmit" onclick="addNewProduct" runat="server" Text="Submit Product"  /><br /><br /><br /><br />
 
 
 </asp:Content>

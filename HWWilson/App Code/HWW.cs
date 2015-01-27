@@ -11,48 +11,90 @@ using System.Web.UI.HtmlControls;
 
 namespace HWWilson.App_Code
 {
-
-    public class Products
+    public abstract class hwConn
     {
-        public SqlDataReader GetProducts()
+        // Defines the server and Database to connect to, this will be used by the methods to connect to the HWWWilson Database
+        public SqlConnection ConnHWW = new SqlConnection("Data Source= BUNNY-TOSH;Initial Catalog=HWWilson;Integrated Security=True");
+
+    } // ends hwConn class
+
+    public class Products:hwConn
+    {
+        //defines the properties of the class
+        private String _productName;
+        public string productName
         {
+            get { return _productName; }
+            set { _productName = value; }
+        }
 
-            string myConnectionString;
-            string sql1;
+        private Int64 _prodBar;
+        public Int64 prodBar
+        {
+            get { return _prodBar;}
+            set { _prodBar = value; }
+        }
 
-            //Instantiate connection object //
-            SqlConnection myConn = new SqlConnection();
+        private int _prodMinLevel;
+        public int prodMinLevel
+        {
+            get { return _prodMinLevel; }
+            set { _prodMinLevel = value; }
+        }
 
-            //Initialise myConnectionString variable
-            myConnectionString = "Data Source= BUNNY-TOSH;Initial Catalog=HWWilson;Integrated Security=True";
-               
-            //Initilaise ConnectionString property of myConn
-            myConn.ConnectionString = myConnectionString;
+        private int _prodStockLevel;
+        public int prodStockLevel
+        {
+            get { return _prodStockLevel; }
+            set { _prodStockLevel = value; }
+        }
 
-            // create the sql to run against the database
-            sql1 = "SELECT product_name, prod_barcode, prod_stock_level FROM tProduct" ;
+        private String _prodStockCode;
+        public string prodStockCode
+        {
+            get { return _prodStockCode; }
+            set { _prodStockCode = value; }
+        }
 
+        private int _prodCatID;
+        public int prodCatID
+        {
+            get { return _prodCatID; }
+            set { _prodCatID = value; }
+        }
+        //End defining the class properties
 
-            SqlCommand myCommand = new SqlCommand();
-            myCommand.CommandText = sql1;
-            myCommand.Connection = myConn;
+        public SqlDataReader GetProduct()
+            //this method retrieves all products from the database using stored procedure spGetProducts
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spGetProducts";
+            command.CommandType = CommandType.StoredProcedure;
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the GetProduct method
 
-            // Open the connection //
-            myConn.Open();
+        public void AddNewProduct()
+            // this method is used to add a new product to the HWWilson databse using stored procedure spAddProduct
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spAddProduct";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@product_name", _productName);
+            command.Parameters.AddWithValue("@prod_barcode", _prodBar);
+            command.Parameters.AddWithValue("@product_min_level", _prodMinLevel);
+            command.Parameters.AddWithValue("@prod_stock_level", _prodStockLevel);
+            command.Parameters.AddWithValue("@prod_stock_code", _prodStockCode);
+            command.Parameters.AddWithValue("@prod_cat_id", _prodCatID);
+            ConnHWW.Open();
+            command.ExecuteNonQuery();
+            ConnHWW.Close();
 
-            // Build and fill the dataReader //
-            // Notice if you close the connection before using the DataReader it generates an error
-            // so CommandBehavior.CloseConnection will close the connection after the datareader is
-            // used on the calling page.
-            SqlDataReader myDataReader = myCommand.ExecuteReader(CommandBehavior.CloseConnection);
+        }// closes the AddNewProduct methods
+        
+    }//Closes the Products class
 
-            // Close connection before data is used from datareader to show error message
-            // myConn.Close();
-            // Return the datareader to the calling program - here it is page_load method of this page.
-            return myDataReader;
-
-        } // end method getProducts
-
-    }
-
-}
+} // closes the namespace

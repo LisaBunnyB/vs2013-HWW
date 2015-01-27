@@ -103,22 +103,22 @@ namespace HWWilson {
         protected global::System.Web.UI.WebControls.TextBox TextProdStockCode;
         
         /// <summary>
-        /// LblProdCatID control.
+        /// DDLProdCat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblProdCatID;
+        protected global::System.Web.UI.WebControls.DropDownList DDLProdCat;
         
         /// <summary>
-        /// TextProdCatID control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextProdCatID;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
         /// ProdSubmit control.
