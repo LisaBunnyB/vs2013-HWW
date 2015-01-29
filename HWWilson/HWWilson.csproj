@@ -160,8 +160,10 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Content\myStyles.css" />
     <Content Include="HWWilson\Employee\addEmployee.aspx" />
     <Content Include="HWWilson\Employee\viewEmployees.aspx" />
+    <Content Include="HWWilson\Orders\bookoutgoods.aspx" />
     <Content Include="HWWilson\Products\addProduct.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -341,6 +343,13 @@
     </Compile>
     <Compile Include="HWWilson\Employee\viewEmployees.aspx.designer.cs">
       <DependentUpon>viewEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HWWilson\Orders\bookoutgoods.aspx.cs">
+      <DependentUpon>bookoutgoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HWWilson\Orders\bookoutgoods.aspx.designer.cs">
+      <DependentUpon>bookoutgoods.aspx</DependentUpon>
     </Compile>
     <Compile Include="HWWilson\Products\addProduct.aspx.cs">
       <DependentUpon>addProduct.aspx</DependentUpon>

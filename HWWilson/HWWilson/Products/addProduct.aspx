@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="addProduct.aspx.cs" Inherits="HWWilson.addProduct" %>
     <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-       <%-- This is where the main content of the page is pplaced. The header and Footer are in the Site.Master file--%>
+        <h1>Add a new Product</h1>
+       <%-- This is where the main content of the page is placed. The header and Footer are in the Site.Master file--%>
     <asp:Label ID="LblProdName" width="150" runat="server" Text="Product Name"></asp:Label>
     <asp:TextBox ID="TextProdName" width="150" runat="server"></asp:TextBox>
         <%--Validate the text box is not blank --%>

@@ -13,6 +13,11 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/myStyles.css" rel="stylesheet" />
+    
+    
 
 </head>
 <body>
@@ -41,7 +46,7 @@
        
     <div id="header">
       <asp:Image ID="HWWLogo" runat="server" ImageUrl="~/HWWilson/Images/HWW-LOGO.JPG" 
-    AlternateText="HW Wilson Ltd logo" />
+    AlternateText="HW Wilson Ltd logo" ImageAlign="Middle" Width="1000px" />
 
     </div><!-- closes log in div -->
         
@@ -56,11 +61,10 @@
    
     
 
-</div><!-- closes the maincontainer div -->
+<!-- closes the maincontainer div -->
  <div id="footerContent">  
-       <div id="copyright">
-        © HW Wilson Ltd 2015|  |  Lisa Bunclark
-        </div>   
+       <div id="copyright" class="col-lg-9 text-center" draggable="false" >
+        © HW Wilson Ltd 2015|  |  Lisa Bunclark&nbsp; </div>   
 
     </div> <!-- closes the footer div -->
     </form>

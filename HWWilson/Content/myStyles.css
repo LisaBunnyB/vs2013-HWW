@@ -1,0 +1,23 @@
+﻿@import url('myStyles.css');
+body {
+    margin:20px;
+    max-width: inherit;
+}
+
+h1 {
+   color: #97CA51;
+}
+
+#MainContent {
+    background-color:aqua;
+margin: 40px;
+}
+
+
+#copyright {
+    font-size:x-large;
+}
+#footerContent {
+background-color: #97CA51;
+
+}
