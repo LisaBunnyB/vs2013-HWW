@@ -12,11 +12,10 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="Content/Site.css" rel="stylesheet" />
-    <link href="Content/bootstrap.css" rel="stylesheet" />
-    <link href="Content/myStyles.css" rel="stylesheet" />
+
     
+    <link href="~/Content/myStyles.css" rel="stylesheet" />
+     
     
 
 </head>
@@ -51,13 +50,13 @@
     </div><!-- closes log in div -->
         
         
-    
+    <div id="maincontent">
         <asp:ContentPlaceHolder id="MainContent" runat="server"> 
         
 
         </asp:ContentPlaceHolder> 
     
-     
+     </div>
    
     
 
