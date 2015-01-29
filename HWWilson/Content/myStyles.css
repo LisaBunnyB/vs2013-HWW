@@ -9,14 +9,17 @@ h1 {
 
 #maincontent {
     background-color:aqua;
+    align-content:center;
     margin: 40px;
 }
 
 
 #copyright {
     font-size:x-large;
+    background-color: black;
 }
-#footerContent {
-background-color: #4cff00;
 
+#footerContent {
+width: 1000px;
+background-color: #4cff00;
 }
