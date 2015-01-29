@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace HWWilson
+namespace HWWilson.HWWilson.Employee
 {
-    public partial class Contact : Page
+    public partial class addEmployee : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

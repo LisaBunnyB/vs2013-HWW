@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HWWilson
+namespace HWWilson.HWWilson.Employee
 {
 
 
-    public partial class Contact
+    public partial class addEmployee
     {
     }
 }

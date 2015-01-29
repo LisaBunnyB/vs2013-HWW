@@ -145,7 +145,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -161,15 +160,16 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="addProduct.aspx" />
-    <Content Include="Contact.aspx" />
+    <Content Include="HWWilson\Employee\addEmployee.aspx" />
+    <Content Include="HWWilson\Employee\viewEmployees.aspx" />
+    <Content Include="HWWilson\Products\addProduct.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="displayproducts.aspx" />
+    <Content Include="HWWilson\Products\displayproducts.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Images\HW-WILSON-LOGO.jpg" />
-    <Content Include="Images\HWW-LOGO.jpg" />
+    <Content Include="HWWilson\Images\HW-WILSON-LOGO.jpg" />
+    <Content Include="HWWilson\Images\HWW-LOGO.jpg" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -328,32 +328,32 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
-    <Compile Include="addProduct.aspx.cs">
+    <Compile Include="HWWilson\Employee\addEmployee.aspx.cs">
+      <DependentUpon>addEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HWWilson\Employee\addEmployee.aspx.designer.cs">
+      <DependentUpon>addEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HWWilson\Employee\viewEmployees.aspx.cs">
+      <DependentUpon>viewEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HWWilson\Employee\viewEmployees.aspx.designer.cs">
+      <DependentUpon>viewEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HWWilson\Products\addProduct.aspx.cs">
       <DependentUpon>addProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="addProduct.aspx.designer.cs">
+    <Compile Include="HWWilson\Products\addProduct.aspx.designer.cs">
       <DependentUpon>addProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="App Code\HWW.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -361,11 +361,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="displayproducts.aspx.cs">
+    <Compile Include="HWWilson\Products\displayproducts.aspx.cs">
       <DependentUpon>displayproducts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="displayproducts.aspx.designer.cs">
+    <Compile Include="HWWilson\Products\displayproducts.aspx.designer.cs">
       <DependentUpon>displayproducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">

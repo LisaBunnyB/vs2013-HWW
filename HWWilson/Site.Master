@@ -40,10 +40,12 @@
 
        
     <div id="header">
-        <img src="Images/HWW-LOGO.jpg" />
+      <asp:Image ID="HWWLogo" runat="server" ImageUrl="~/HWWilson/Images/HWW-LOGO.JPG" 
+    AlternateText="HW Wilson Ltd logo" />
+
     </div><!-- closes log in div -->
         
-
+        
     
         <asp:ContentPlaceHolder id="MainContent" runat="server"> 
         
