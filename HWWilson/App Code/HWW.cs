@@ -97,4 +97,19 @@ namespace HWWilson.App_Code
         
     }//Closes the Products class
 
+    public class JobNumbers:hwConn
+    {
+        public SqlDataReader GetJobNo()
+        //this method retrieves all products from the database using stored procedure spGetProducts
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spGetJobNo";
+            command.CommandType = CommandType.StoredProcedure;
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the GetProduct method
+    }// closes the class JobNumbers
+
 } // closes the namespace
