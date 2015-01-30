@@ -7,19 +7,27 @@ h1 {
    color: #97CA51;
 }
 
+
+#header {
+    width: 100%;
+}
 #maincontent {
-    background-color:aqua;
+    width: 80%;
     align-content:center;
     margin: 40px;
 }
 
 
-#copyright {
+#copyright{
+
     font-size:x-large;
-    background-color: black;
+     align-content:center;
+     background-color:#97ca51;
+    top: 240px;
+    left: 118px;
 }
 
 #footerContent {
-width: 1000px;
-background-color: #4cff00;
+
+    width:100%;
 }
