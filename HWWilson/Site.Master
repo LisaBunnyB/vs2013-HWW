@@ -11,16 +11,16 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <webopt:bundlereference runat="server" path="~/Content/css" />
 
-
+    
     <link href="~/Content/myStyles.css" rel="stylesheet" />
-
-
+     
+    
 
 </head>
 <body>
-    <form runat="server" style="top: 65px; left: 25px; position: absolute; height: 800px; width: 1100px">
+    <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -42,32 +42,30 @@
             </Scripts>
         </asp:ScriptManager>
 
+       
+    <div id="header">
+      <asp:Image ID="HWWLogo" runat="server" ImageUrl="~/HWWilson/Images/HWW-LOGO.JPG" 
+    AlternateText="HW Wilson Ltd logo" ImageAlign="Middle" Width="1000px" />
 
-        <div id="header">
-            <div id="logo">
-                <asp:Image ID="HWWLogo" runat="server" ImageUrl="~/HWWilson/Images/HWW-LOGO.JPG"
-                    AlternateText="HW Wilson Ltd logo" ImageAlign="Middle" />
-            </div>
-        </div>
-        <!-- closes log in div -->
+    </div><!-- closes log in div -->
+        
+        
+    <div id="maincontent">
+        <asp:ContentPlaceHolder id="MainContent" runat="server"> 
+        
 
+        </asp:ContentPlaceHolder> 
+    
+     </div>
+   
+    
 
-        <div id="maincontent">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+<!-- closes the maincontainer div -->
+ <div id="footerContent">  
+       <div id="copyright" class="col-lg-9 text-center" draggable="false" >
+        © HW Wilson Ltd 2015|  |  Lisa Bunclark&nbsp; </div>   
 
-        </div>
-
-
-
-        <!-- closes the maincontainer div -->
-        <div id="footerContent">
-            <div id="copyright"  draggable="false">
-                © HW Wilson Ltd 2015|  |  Lisa Bunclark&nbsp;
-            </div>
-
-        </div>
-        <!-- closes the footer div -->
+    </div> <!-- closes the footer div -->
     </form>
 </body>
 </html>
