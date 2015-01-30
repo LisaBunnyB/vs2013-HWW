@@ -20,7 +20,7 @@
 
 </head>
 <body>
-    <form runat="server" style="top: 65px; left: 25px; position: absolute; height: 800px; width: 1100px">
+    <form runat="server" style="top: 65px; left: 25px; position: absolute; width: 1100px">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>

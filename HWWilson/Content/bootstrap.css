@@ -353,9 +353,9 @@ a:focus {
 
 img {
   vertical-align: middle;
-    top: 108px;
-    left: 167px;
-    position: absolute;
+    top: 7px;
+    left: 2px;
+    position: relative;
     height: 260px;
     width: 960px;
 }
