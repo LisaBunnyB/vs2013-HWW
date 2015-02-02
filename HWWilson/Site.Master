@@ -38,8 +38,8 @@
         </asp:ScriptManager>
 
          <div class="container body-content">      
-             <asp:Image ID="HWWLogo" runat="server" ImageUrl="~/HWWilson/Images/HWW-LOGO.JPG" />      
-             <asp:ContentPlaceHolder ID="MainContent" runat="server">
+             <asp:Image ID="HWWLogo" runat="server" ImageUrl="~/HWWilson/Images/HWW_03.JPG" />    
+                         <asp:ContentPlaceHolder ID="MainContent" runat="server">
                  <div class="pagecontent">
                 </div>
             </asp:ContentPlaceHolder>
