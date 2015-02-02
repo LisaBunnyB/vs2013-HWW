@@ -12,15 +12,10 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
-
-
     <link href="~/Content/myStyles.css" rel="stylesheet" />
-
-
-
 </head>
 <body>
-    <form runat="server" style="top: 65px; left: 25px; position: absolute; width: 1100px">
+    <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -42,32 +37,17 @@
             </Scripts>
         </asp:ScriptManager>
 
-
-        <div id="header">
-            <div id="logo">
-                <asp:Image ID="HWWLogo" runat="server" ImageUrl="~/HWWilson/Images/HWW-LOGO.JPG"
-                    AlternateText="HW Wilson Ltd logo" ImageAlign="Middle" />
-            </div>
-        </div>
-        <!-- closes log in div -->
-
-
-        <div id="maincontent">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+         <div class="container body-content">      
+             <asp:Image ID="HWWLogo" runat="server" ImageUrl="~/HWWilson/Images/HWW-LOGO.JPG" />      
+             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-
+            <hr />
+            <footer>
+                <p>HW Wilson Ltd 2015|  |  Lisa Bunclark</p>
+            </footer>
+           
         </div>
-
-
-
-        <!-- closes the maincontainer div -->
-        <div id="footerContent">
-            <div id="copyright"  draggable="false">
-                © HW Wilson Ltd 2015|  |  Lisa Bunclark&nbsp;
-            </div>
-
-        </div>
-        <!-- closes the footer div -->
+               
     </form>
 </body>
 </html>

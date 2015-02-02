@@ -8,24 +8,25 @@ h1 {
 }
 
 
-#header {
+#HWWLogo {
     width: 100%;
 }
-#maincontent {
+
+.pagecontent {
     width: 80%;
     align-content:center;
     margin: 40px;
 }
 
-
-#copyright{
-
-    font-size:x-large;
-     align-content:center;
+footer {
      background-color:#97ca51;
-    top: 240px;
-    left: 118px;
 }
+
+footer p{
+
+     align-content:center;
+    
+    }
 
 #footerContent {
 
