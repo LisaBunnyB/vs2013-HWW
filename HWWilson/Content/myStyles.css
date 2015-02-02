@@ -22,13 +22,9 @@ footer {
      background-color:#97ca51;
 }
 
-footer p{
+#footerText {
+           width: 50%;
+          margin:auto;
+      }
 
-     align-content:center;
-    
-    }
 
-#footerContent {
-
-    width:100%;
-}

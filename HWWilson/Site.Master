@@ -40,10 +40,14 @@
          <div class="container body-content">      
              <asp:Image ID="HWWLogo" runat="server" ImageUrl="~/HWWilson/Images/HWW-LOGO.JPG" />      
              <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                 <div class="pagecontent">
+                </div>
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>HW Wilson Ltd 2015|  |  Lisa Bunclark</p>
+                <div id="footerText">
+                <p>HW Wilson Ltd 2015| &nbsp; &nbsp; Lisa Bunclark</p>
+                </div>
             </footer>
            
         </div>
