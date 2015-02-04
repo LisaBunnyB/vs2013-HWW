@@ -22,6 +22,15 @@ namespace HWWilson.HWWilson.Orders {
         protected global::System.Web.UI.WebControls.DropDownList DDLjobNo;
         
         /// <summary>
+        /// BtnAllJob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAllJob;
+        
+        /// <summary>
         /// GVjobDesc control.
         /// </summary>
         /// <remarks>
@@ -29,5 +38,41 @@ namespace HWWilson.HWWilson.Orders {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GVjobDesc;
+        
+        /// <summary>
+        /// TxtBarcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtBarcode;
+        
+        /// <summary>
+        /// TxtCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCode;
+        
+        /// <summary>
+        /// LblProdDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblProdDetails;
+        
+        /// <summary>
+        /// LblProdQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblProdQuantity;
     }
 }
