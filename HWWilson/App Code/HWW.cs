@@ -99,6 +99,27 @@ namespace HWWilson.App_Code
 
     public class JobNumbers:hwConn
     {
+
+        private String _jobNo;
+        public string jobNo
+        {
+            get { return _jobNo; }
+            set { _jobNo = value; }
+        }
+
+        private String _jobDesc;
+        public string jobDesc
+        {
+            get { return _jobDesc; }
+            set { _jobDesc = value; }
+        }
+
+        private String  _jobStatus;
+        public string jobStatus
+        {
+            get { return _jobStatus; }
+            set { _jobStatus = value; }
+        }
         public SqlDataReader GetJobNo()
         //this method retrieves all products from the database using stored procedure spGetProducts
         {
@@ -110,6 +131,24 @@ namespace HWWilson.App_Code
             SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
             return myReader;
         } // ends the GetProduct method
+        
+        public SqlDataReader GetJobNoFilter()
+        // this method is used to retrieve job description from the database using stroed procedure spGetJobDesc which requires a
+        // a job number to be passed as a parameter
+        {           
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spGetJobDesc";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@job_number", _jobNo);
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader; 
+          
+        } // ends the GetJobNoFilter method
+
+       
+        
     }// closes the class JobNumbers
 
 } // closes the namespace

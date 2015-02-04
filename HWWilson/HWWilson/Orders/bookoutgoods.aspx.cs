@@ -17,18 +17,37 @@ namespace HWWilson.HWWilson.Orders
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                fillDdljobNo();
+                fillJobDesc();
+            }
+        }
+
+        
+        protected void fillDdljobNo()
+        { // on page load the Drop down list is populated with all job numbers from the database
             JobNumbers myJob = new JobNumbers();
             SqlDataReader drJob = myJob.GetJobNo();
             DDLjobNo.DataSource = drJob;
             DDLjobNo.DataTextField = "job_number";
-            DDLjobNo.DataValueField = "job_description";
+            DDLjobNo.DataValueField = "job_Number";
             DDLjobNo.DataBind();
-            
+        }
+
+        protected void fillJobDesc()
+        { // populates a gridview with all job numbers
+            JobNumbers myJob = new JobNumbers();
+            GVjobDesc.DataSource = myJob.GetJobNo();
+            GVjobDesc.DataBind();
         }
 
         protected void DDLjobNo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-              TextBox1.Text = DDLjobNo.SelectedValue;
+        { // When the user selects a job number the gridview shows the description for that site
+            JobNumbers myJob = new JobNumbers();
+            myJob.jobNo = Convert.ToString(DDLjobNo.SelectedValue);
+            GVjobDesc.DataSource = myJob.GetJobNoFilter();
+            GVjobDesc.DataBind();
         }
     }
 }

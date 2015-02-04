@@ -4,7 +4,7 @@
     <h1>Book out goods for a site</h1>
     <asp:DropDownList ID="DDLjobNo" AutoPostBack="true" OnSelectedIndexChanged="DDLjobNo_SelectedIndexChanged" runat="server">
     </asp:DropDownList>
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+<asp:GridView ID="GVjobDesc" runat="server"></asp:GridView>
 
 
 </asp:Content>
