@@ -13,5 +13,21 @@ namespace HWWilson.HWWilson.Employee
         {
 
         }
+
+        
+        protected void ButnViewEmployee_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("viewEmployees.aspx");
+        }
+
+        protected void ButnChgEmp_Click(object sender, EventArgs e)
+        {
+             Response.Redirect("changeEmployee.aspx");
+        }
+
+        protected void ButnAddEmp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("addEmployee.aspx");
+        } 
     }
 }

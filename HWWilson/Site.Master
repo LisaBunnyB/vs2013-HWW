@@ -77,7 +77,7 @@
             </div>
         </div>
         <div class="container body-content">
-            <asp:Image ID="HWWLogo" runat="server" ImageUrl="~/HWWilson/Images/HWW_03.JPG" />
+            <asp:Image ID="HWWLogo" CssClass="marBot" runat="server" ImageUrl="~/HWWilson/Images/HWW_03.JPG" />
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 <div class="pagecontent">
                 </div>

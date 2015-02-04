@@ -147,8 +147,55 @@ namespace HWWilson.App_Code
           
         } // ends the GetJobNoFilter method
 
-       
         
     }// closes the class JobNumbers
 
+    public class Employees:hwConn
+    {
+        private Int64 _empId;
+        public Int64 empId
+        {
+            get { return _empId; }
+            set { _empId = value; }
+        }
+
+        private String _fName;
+        public string fName
+        {
+            get { return _fName; }
+            set { _fName = value; }
+        }
+
+        private String _Sname;
+        public string Sname
+        {
+            get { return _Sname; }
+            set { _Sname = value; }
+        }
+
+        private int _roleId;
+        public int roleId
+        {
+            get { return _roleId; }
+            set { _roleId = value; }
+        }
+
+        public void AddNewEmp()
+        // this method is used to add a new product to the HWWilson databse using stored procedure spAddProduct
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spAddEmployee";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@employee_id", _empId);
+            command.Parameters.AddWithValue("@emp_firstname", _fName);
+            command.Parameters.AddWithValue("@emp_surname ", _Sname);
+            command.Parameters.AddWithValue("@role_id ", _roleId);
+            ConnHWW.Open();
+            command.ExecuteNonQuery();
+            ConnHWW.Close();
+
+        }// closes the AddNewProduct methods
+
+    } // closes the employee class
 } // closes the namespace
