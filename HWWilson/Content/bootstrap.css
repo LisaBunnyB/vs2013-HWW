@@ -58,7 +58,7 @@ html {
 }
 
 body {
-  margin: ver ;
+  margin: 0;
 }
 
 a:focus {
@@ -287,7 +287,6 @@ table {
   }
   .label {
     border: 1px solid #000;
-    margin:5px;
   }
   .table {
     border-collapse: collapse !important;
@@ -333,7 +332,6 @@ input,
 select[multiple],
 textarea {
   background-image: none;
-  margin: 5px 5px 0 0;
 }
 
 a {
@@ -355,11 +353,6 @@ a:focus {
 
 img {
   vertical-align: middle;
-    top: 7px;
-    left: 2px;
-    position: relative;
-    height: 260px;
-    width: 960px;
 }
 
 .img-responsive {
@@ -867,9 +860,6 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-    top: 330px;
-    left: 4px;
-    width: 1210px;
 }
 
 .col-xs-1,

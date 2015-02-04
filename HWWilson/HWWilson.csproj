@@ -162,6 +162,7 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Content\myStyles.css" />
     <Content Include="HWWilson\Employee\addEmployee.aspx" />
+    <Content Include="HWWilson\Employee\Employee.aspx" />
     <Content Include="HWWilson\Employee\viewEmployees.aspx" />
     <Content Include="HWWilson\Orders\bookoutgoods.aspx" />
     <Content Include="HWWilson\Orders\returngoods.aspx" />
@@ -337,6 +338,13 @@
     </Compile>
     <Compile Include="HWWilson\Employee\addEmployee.aspx.designer.cs">
       <DependentUpon>addEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HWWilson\Employee\Employee.aspx.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HWWilson\Employee\Employee.aspx.designer.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
     </Compile>
     <Compile Include="HWWilson\Employee\viewEmployees.aspx.cs">
       <DependentUpon>viewEmployees.aspx</DependentUpon>

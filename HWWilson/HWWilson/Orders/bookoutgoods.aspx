@@ -10,8 +10,9 @@
 <asp:TextBox ID="TxtBarcode" AutoPostBack="true" OnTextChanged="TxtBarcode_TextChanged" runat="server"></asp:TextBox><br />
 <asp:TextBox ID="TxtCode" Width="150" runat="server"></asp:TextBox> 
 <asp:Label ID="LblProdDetails" runat="server" Text=""></asp:Label>
-<asp:Label ID="LblProdQuantity" runat="server" Text=""></asp:Label>
+<asp:Label ID="LblProdQuantity" runat="server" Text=""></asp:Label> <br /><br />
 
+<asp:Button ID="Button1" runat="server" Text="Book Out Goods" />
 
 
 </asp:Content>
