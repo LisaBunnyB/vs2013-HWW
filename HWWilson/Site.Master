@@ -52,9 +52,9 @@
                         <li><a runat="server" href="~/HWWilson/Orders/bookoutgoods.aspx">Book out Goods</a></li>
                         <li><a runat="server" href="~/HWWilson/Orders/returngoods.aspx">Return Goods</a></li>
                         <li><a runat="server" href="~/HWWilson/Employee/employee.aspx">Employees</a> </li>                        
-                        <li><a runat="server" href="~/HWWilson/Employee/products.aspx">Products</a>
-                        <li><a runat="server" href="~/HWWilson/Employee/suppliers.aspx">Suppliers</a>                                        
-                        <li><a runat="server" href="~/HWWilson/Employee/orders.aspx">Orders</a></li>
+                        <li><a runat="server" href="~/HWWilson/Products/product.aspx">Products</a>
+                        <li><a runat="server" href="~/HWWilson/Suppliers/suppliers.aspx">Suppliers</a>                                        
+                        <li><a runat="server" href="~/HWWilson/Orders/orders.aspx">Orders</a></li>
                     </ul>
 
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

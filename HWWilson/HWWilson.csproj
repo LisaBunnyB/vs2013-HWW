@@ -171,10 +171,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="HWWilson\Products\changeProducts.aspx" />
     <Content Include="HWWilson\Products\displayproducts.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="HWWilson\Images\HW-WILSON-LOGO.jpg" />
     <Content Include="HWWilson\Images\HWW-LOGO.jpg" />
+    <Content Include="HWWilson\Products\product.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -394,6 +396,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HWWilson\Products\changeProducts.aspx.cs">
+      <DependentUpon>changeProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HWWilson\Products\changeProducts.aspx.designer.cs">
+      <DependentUpon>changeProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HWWilson\Products\displayproducts.aspx.cs">
       <DependentUpon>displayproducts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -403,6 +412,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HWWilson\Products\product.aspx.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HWWilson\Products\product.aspx.designer.cs">
+      <DependentUpon>product.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
