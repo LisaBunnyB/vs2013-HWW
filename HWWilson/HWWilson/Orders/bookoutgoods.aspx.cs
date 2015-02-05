@@ -17,13 +17,14 @@ namespace HWWilson.HWWilson.Orders
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+             
             if (!IsPostBack)
             {
                 fillDdljobNo();
                 fillJobDesc();
-            }
+             }
             TxtBarcode.Focus();
-
+            
         }
 
 
@@ -65,9 +66,11 @@ namespace HWWilson.HWWilson.Orders
 
 
         protected void TxtBarcode_TextChanged(object sender, EventArgs e)
-        {// This gets the products details from the database when a barcode is scanned into the TxtBarcode text box
+        {
+            // This gets the products details from the database when a barcode is scanned into the TxtBarcode text box
             Session["barcode"] = TxtBarcode.Text;
-            TxtCode.Text = "" + Session["barcode"];
+            Session["scounter"] = Convert.ToInt32(Session["scounter"]) + 1;
+
             SqlConnection myConn = new SqlConnection();
             string myConnectionString = "Data Source= BUNNY-TOSH;Initial Catalog=HWWilson;Integrated Security=True";
 
@@ -88,8 +91,51 @@ namespace HWWilson.HWWilson.Orders
 
             while (myDataReader.Read() == true)
             {
-                LblProdDetails.Text += "" + myDataReader["product_name"] + "<br />";
-                LblProdQuantity.Text = "1" + "<br />";
+                if (Convert.ToInt32(Session["scounter"]) == 1)
+                {
+                    TxtCode.Visible = true;
+                    TxtCode.Text = "" + Session["barcode"];
+                    TxtProdDetails.Visible = true;
+                    TxtProdDetails.Text += "" + myDataReader["product_name"] ;
+                    TxtProdQuantity.Visible = true;
+                    TxtProdQuantity.Text = "1" ;
+                }
+               
+                if (Convert.ToInt32(Session["scounter"]) == 2)
+                {
+                    TxtCode2.Visible = true;
+                    TxtCode2.Text = "" + Session["barcode"];
+                    TxtProdDetails2.Visible = true;
+                    TxtProdDetails2.Text += "" + myDataReader["product_name"];
+                    TxtProdQuantity2.Visible = true;
+                    TxtProdQuantity2.Text = "1" ;
+                }
+
+                if (Convert.ToInt32(Session["scounter"]) == 3)
+                {
+                    TxtCode3.Visible = true;
+                    TxtCode3.Text = "" + Session["barcode"];
+                    TxtProdDetails3.Visible = true;
+                    TxtProdDetails3.Text += "" + myDataReader["product_name"];
+                    TxtProdQuantity3.Visible = true;
+                    TxtProdQuantity3.Text = "1" ;
+                }
+
+                if (Convert.ToInt32(Session["scounter"]) == 4)
+                {
+                    TxtCode4.Visible = true;
+                    TxtCode4.Text = "" + Session["barcode"];
+                    TxtProdDetails4.Visible = true;
+                    TxtProdDetails4.Text += "" + myDataReader["product_name"];
+                    TxtProdQuantity4.Visible = true;
+                    TxtProdQuantity4.Text = "1" ;
+                }
+                else
+                {
+                   TextBox1.Text = "Hello World! I am responding to an onClick event.";
+                  TextBox1.Text = "I have done this " + Session["scounter"] + " times.";
+                }
+                          
             }   // end of loop
 
             myDataReader.Close();
@@ -97,3 +143,4 @@ namespace HWWilson.HWWilson.Orders
         }
     }
 }
+

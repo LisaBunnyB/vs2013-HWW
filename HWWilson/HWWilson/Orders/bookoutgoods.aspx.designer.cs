@@ -58,22 +58,112 @@ namespace HWWilson.HWWilson.Orders {
         protected global::System.Web.UI.WebControls.TextBox TxtCode;
         
         /// <summary>
-        /// LblProdDetails control.
+        /// TxtProdDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblProdDetails;
+        protected global::System.Web.UI.WebControls.TextBox TxtProdDetails;
         
         /// <summary>
-        /// LblProdQuantity control.
+        /// TxtProdQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblProdQuantity;
+        protected global::System.Web.UI.WebControls.TextBox TxtProdQuantity;
+        
+        /// <summary>
+        /// TxtCode2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCode2;
+        
+        /// <summary>
+        /// TxtProdDetails2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtProdDetails2;
+        
+        /// <summary>
+        /// TxtProdQuantity2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtProdQuantity2;
+        
+        /// <summary>
+        /// TxtCode3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCode3;
+        
+        /// <summary>
+        /// TxtProdDetails3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtProdDetails3;
+        
+        /// <summary>
+        /// TxtProdQuantity3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtProdQuantity3;
+        
+        /// <summary>
+        /// TxtCode4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCode4;
+        
+        /// <summary>
+        /// TxtProdDetails4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtProdDetails4;
+        
+        /// <summary>
+        /// TxtProdQuantity4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtProdQuantity4;
+        
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
         /// Button1 control.
