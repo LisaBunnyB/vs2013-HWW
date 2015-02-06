@@ -165,6 +165,7 @@
     <Content Include="HWWilson\Employee\changeEmployee.aspx" />
     <Content Include="HWWilson\Employee\Employee.aspx" />
     <Content Include="HWWilson\Employee\viewEmployees.aspx" />
+    <Content Include="HWWilson\Images\HW-WILSON-LOGO_04.jpg" />
     <Content Include="HWWilson\Orders\bookoutgoods.aspx" />
     <Content Include="HWWilson\Orders\returngoods.aspx" />
     <Content Include="HWWilson\Products\addProduct.aspx" />
