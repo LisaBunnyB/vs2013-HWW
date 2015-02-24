@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,24 +17,50 @@ namespace HWWilson
         {
 
         }
-
-        protected void LoginButton_Click(object sender, EventArgs e)
+        protected void Login1_Authenticate(object sender, EventArgs e)
         {
-            // Three valid username/password pairs: Scott/password, Jisun/password, and Sam/password.
-            string[] users = { "Kelly.Thorn", "Trade", "Peter.Wiffen" };
-            string[] passwords = { "password", "1212412563984", "password" };
-            for (int i = 0; i < users.Length; i++)
+
+            int userId = 0;
+            int role = 0;
+            
+            SqlConnection ConnHWW = new SqlConnection("Data Source=BUNNY-TOSH;Initial Catalog=HWW;Integrated Security=True");
+         
             {
-                bool validUsername = (string.Compare(UserName.Text, users[i], true) == 0);
-                bool validPassword = (string.Compare(Password.Text, passwords[i], false) == 0);
-                if (validUsername && validPassword)
+
+                using (SqlCommand cmd = new SqlCommand("Validate_User"))
                 {
-                    FormsAuthentication.RedirectFromLoginPage(UserName.Text, RememberMe.Checked);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Username", Login1.UserName);                                        
+                    cmd.Parameters.AddWithValue("@Password", Login1.Password);
+                    cmd.Connection = ConnHWW;
+                    ConnHWW.Open();
+
+            userId = Convert.ToInt32(cmd.ExecuteScalar());
+                    ConnHWW.Close();
+                  }
+
+                switch (userId)
+                {
+
+                    case -1:
+
+                        Login1.FailureText = "Username and/or password is incorrect.";
+
+                        break;
+
+                   
+                    default:
+
+                        FormsAuthentication.RedirectFromLoginPage(Login1.UserName, Login1.RememberMeSet);
+
+                        break;
+
                 }
+
             }
-            // If we reach here, the user's credentials were invalid
-            InvalidCredentialsMessage.Visible = true;
 
         }
     }
 }
+    
