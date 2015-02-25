@@ -11,7 +11,7 @@ namespace HWWilson
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            TxtBarcode.Text = Convert.ToString(Session["roles"]);
         }
     }
 }

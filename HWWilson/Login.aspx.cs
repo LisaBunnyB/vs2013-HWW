@@ -21,24 +21,27 @@ namespace HWWilson
         {
 
             int userId = 0;
-            int role = 0;
-            
+            string roles = string.Empty;
+
             SqlConnection ConnHWW = new SqlConnection("Data Source=BUNNY-TOSH;Initial Catalog=HWW;Integrated Security=True");
-         
+
             {
 
-                using (SqlCommand cmd = new SqlCommand("Validate_User"))
+                using (SqlCommand cmd = new SqlCommand("Validate_User_Role"))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Username", Login1.UserName);                                        
+                    cmd.Parameters.AddWithValue("@Username", Login1.UserName);
                     cmd.Parameters.AddWithValue("@Password", Login1.Password);
                     cmd.Connection = ConnHWW;
                     ConnHWW.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    reader.Read();
+                    userId = Convert.ToInt32(reader["userID"]);
+                    Session["roles"] = reader["roles"].ToString();
 
-            userId = Convert.ToInt32(cmd.ExecuteScalar());
                     ConnHWW.Close();
-                  }
+                }
 
                 switch (userId)
                 {
@@ -49,11 +52,19 @@ namespace HWWilson
 
                         break;
 
-                   
+
                     default:
 
-                        FormsAuthentication.RedirectFromLoginPage(Login1.UserName, Login1.RememberMeSet);
+                        FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, Login1.UserName, DateTime.Now, DateTime.Now.AddMinutes(2880), Login1.RememberMeSet, roles, FormsAuthentication.FormsCookiePath);
+                        string hash = FormsAuthentication.Encrypt(ticket);
+                        HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
 
+                        if (ticket.IsPersistent)
+                        {
+                            cookie.Expires = ticket.Expiration;
+                        }
+                        Response.Cookies.Add(cookie);
+                        Response.Redirect(FormsAuthentication.GetRedirectUrl(Login1.UserName, Login1.RememberMeSet));
                         break;
 
                 }
@@ -63,4 +74,3 @@ namespace HWWilson
         }
     }
 }
-    
