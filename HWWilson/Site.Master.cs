@@ -68,6 +68,11 @@ namespace HWWilson
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            menu();
+        }
+
+        protected void menu()
+        {
             if (Session["roles"] != null)
             {
                 if (Session["roles"].ToString().Equals("Admin"))
@@ -88,19 +93,20 @@ namespace HWWilson
                 {
                     returnsLink.Visible = true;
                 }
-                else 
+                else
                 {
                     bookOutLink.Visible = true;
                 }
             }
-                                 
+
         }
 
-        
+
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut();
         }
     }
+
 
 }

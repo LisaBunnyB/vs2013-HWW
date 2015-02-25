@@ -37,41 +37,54 @@ namespace HWWilson
                     ConnHWW.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     reader.Read();
+                    try { 
                     userId = Convert.ToInt32(reader["userID"]);
+                    }
+                    catch
+                    {
+                        userId = Convert.ToInt32(reader[""]);
+                    }
+                    try {
                     Session["roles"] = reader["roles"].ToString();
-
+                     }
+                    catch 
+                    {
+                        Session["roles"] = null;
+                    }
                     ConnHWW.Close();
-                }
-
-                switch (userId)
-                {
-
-                    case -1:
-
-                        Login1.FailureText = "Username and/or password is incorrect.";
-
-                        break;
 
 
-                    default:
+                    switch (userId)
+                    {
 
-                        FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, Login1.UserName, DateTime.Now, DateTime.Now.AddMinutes(2880), Login1.RememberMeSet, roles, FormsAuthentication.FormsCookiePath);
-                        string hash = FormsAuthentication.Encrypt(ticket);
-                        HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
+                        case -1:
 
-                        if (ticket.IsPersistent)
-                        {
-                            cookie.Expires = ticket.Expiration;
-                        }
-                        Response.Cookies.Add(cookie);
-                    
-                        Response.Redirect(FormsAuthentication.GetRedirectUrl(Login1.UserName, Login1.RememberMeSet));
-                        break;
+                            Login1.FailureText = "Username and/or password is incorrect.";
+
+                            break;
+
+
+                        default:
+
+                            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, Login1.UserName, DateTime.Now, DateTime.Now.AddMinutes(2880), Login1.RememberMeSet, roles, FormsAuthentication.FormsCookiePath);
+                            string hash = FormsAuthentication.Encrypt(ticket);
+                            HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
+
+                            if (ticket.IsPersistent)
+                            {
+                                cookie.Expires = ticket.Expiration;
+                            }
+                            Response.Cookies.Add(cookie);
+
+                            Response.Redirect(FormsAuthentication.GetRedirectUrl(Login1.UserName, Login1.RememberMeSet));
+                            break;
+
+                    }
 
                 }
 
             }
-
         }
+
     }
 }
