@@ -68,9 +68,35 @@ namespace HWWilson
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["roles"] != null)
+            {
+                if (Session["roles"].ToString().Equals("Admin"))
+                {
+                    returnsLink.Visible = true;
+                    employeeLinK.Visible = true;
+                    productsLink.Visible = true;
+                    suppliersLink.Visible = true;
+                    orderLink.Visible = true;
+                }
+                else if (Session["roles"].ToString().Equals("Office"))
+                {
+                    returnsLink.Visible = true;
+                    employeeLinK.Visible = true;
+                    productsLink.Visible = true;
+                }
+                else if (Session["roles"].ToString().Equals("Storeman"))
+                {
+                    returnsLink.Visible = true;
+                }
+                else 
+                {
+                    bookOutLink.Visible = true;
+                }
+            }
+                                 
         }
 
+        
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut();

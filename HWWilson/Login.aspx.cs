@@ -64,6 +64,7 @@ namespace HWWilson
                             cookie.Expires = ticket.Expiration;
                         }
                         Response.Cookies.Add(cookie);
+                    
                         Response.Redirect(FormsAuthentication.GetRedirectUrl(Login1.UserName, Login1.RememberMeSet));
                         break;
 
