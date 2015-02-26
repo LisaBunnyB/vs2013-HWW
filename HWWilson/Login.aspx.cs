@@ -65,11 +65,11 @@ namespace HWWilson
 
 
                         default:
-
+                           
                             FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, Login1.UserName, DateTime.Now, DateTime.Now.AddMinutes(2880), Login1.RememberMeSet, roles, FormsAuthentication.FormsCookiePath);
                             string hash = FormsAuthentication.Encrypt(ticket);
                             HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
-
+                            Session["userid"] = userId;
                             if (ticket.IsPersistent)
                             {
                                 cookie.Expires = ticket.Expiration;

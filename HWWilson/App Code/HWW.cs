@@ -11,9 +11,9 @@ using System.Web.UI.HtmlControls;
 
 namespace HWWilson.App_Code
 {
+    // Defines the server and Database to connect to, this will be used by every function to connect to the HWW Database
     public abstract class hwConn
-    {
-        // Defines the server and Database to connect to, this will be used by the methods to connect to the HWWWilson Database
+    {   //this is the address of the database to connect to  
         public SqlConnection ConnHWW = new SqlConnection("Data Source= BUNNY-TOSH;Initial Catalog=HWWilson;Integrated Security=True");
 
     } // ends hwConn class
