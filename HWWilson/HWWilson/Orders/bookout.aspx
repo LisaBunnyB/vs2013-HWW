@@ -7,6 +7,7 @@
     <br />
     <br />
     <asp:GridView ID="GVjobDesc" runat="server"></asp:GridView>
-     <asp:TextBox ID="TxtBar" AutoPostBack="true" runat="server" ></asp:TextBox><br />
+     <asp:TextBox ID="TxtBar" AutoPostBack="true" OnTextChanged="NewBarcode" runat="server" ></asp:TextBox><br />
     <asp:GridView ID="GVorder" runat="server"></asp:GridView>
+     <asp:TextBox ID="TextBox1" AutoPostBack="true" runat="server" ></asp:TextBox><br />
 </asp:Content>

@@ -208,4 +208,50 @@ namespace HWWilson.App_Code
         }// closes the AddNewProduct methods
 
     } // closes the employee class
+
+    public class Order:hwConn
+    {
+        private String _jobNo;
+        public string jobNo
+        {
+            get { return _jobNo; }
+            set { _jobNo = value; }
+        }
+
+        private Int32 _ordEmp;
+        public Int32 ordEmp
+        {
+            get { return _ordEmp; }
+            set { _ordEmp = value; }
+        }
+        private int  _sordNo;
+        public int sordNo
+        {
+            get { return _sordNo; }
+            set { _sordNo = value; }
+        }
+        
+        public void CreateNewOrder()
+        // this method is used to add a new Order to the HWW databse using stored procedure spNewOrder
+        {
+           
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spNewOrder";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@orderEmp", _ordEmp);
+            command.Parameters.AddWithValue("@jobNo", _jobNo);
+            ConnHWW.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+            sordNo = Convert.ToInt16(reader["orderId"]);
+            
+            
+            ConnHWW.Close();
+            
+                
+        }// closes the AddNewProduct methods
+        
+        
+    }// Closes the Order Class
 } // closes the namespace

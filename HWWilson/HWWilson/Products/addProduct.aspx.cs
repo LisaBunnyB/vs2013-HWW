@@ -27,8 +27,8 @@ namespace HWWilson
             addProd.prodStockCode = Convert.ToString(TextProdStockCode.Text);
             addProd.prodCatID = Convert.ToInt32(DDLProdCat.SelectedValue);
             addProd.AddNewProduct();
-           
 
-        }//
+
+        }////closes the addNewProduct class
     } //closes the addProduct class
 } // closes the namespace
