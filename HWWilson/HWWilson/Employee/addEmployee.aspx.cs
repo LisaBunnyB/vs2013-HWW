@@ -17,12 +17,21 @@ namespace HWWilson.HWWilson.Employee
 
         protected void EmpSubmit_Click(object sender, EventArgs e)
         {
+            string name = Convert.ToString(TxtEmpFName.Text);
+            string surname = Convert.ToString(TxtSurname.Text);
             Employees addEmp = new Employees();
-            addEmp.empId = Convert.ToInt64(TextEmpd.Text);
             addEmp.fName = Convert.ToString(TxtEmpFName.Text);
             addEmp.Sname = Convert.ToString(TxtSurname.Text);
             addEmp.roleId = Convert.ToInt32(DDLEmpRole.SelectedValue);
+            addEmp.userName = Convert.ToString(TxtUsername.Text);
+            addEmp.password = Convert.ToString(TxtPassword.Text);
             addEmp.AddNewEmp();
+            TxtConfirm.Visible = true;
+            TxtConfirm.Text = "The user " + name + " " + surname + " has been successfully added to the database";
+            TxtEmpFName.Text = "";
+            TxtSurname.Text = "";
+            TxtUsername.Text = "";
+            TxtPassword.Text = "";
         }
     }
 }

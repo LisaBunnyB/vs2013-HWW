@@ -14,7 +14,7 @@ namespace HWWilson.App_Code
     // Defines the server and Database to connect to, this will be used by every function to connect to the HWW Database
     public abstract class hwConn
     {   //this is the address of the database to connect to  
-        public SqlConnection ConnHWW = new SqlConnection("Data Source= BUNNY-TOSH;Initial Catalog=HWWilson;Integrated Security=True");
+        public SqlConnection ConnHWW = new SqlConnection("Data Source= BUNNY-TOSH;Initial Catalog=HWW;Integrated Security=True");
 
     } // ends hwConn class
 
@@ -84,7 +84,7 @@ namespace HWWilson.App_Code
             command.CommandText = "spAddProduct";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@product_name", _productName);
-            command.Parameters.AddWithValue("@prod_barcode", _prodBar);
+            command.Parameters.AddWithValue("@barcode", _prodBar);
             command.Parameters.AddWithValue("@product_min_level", _prodMinLevel);
             command.Parameters.AddWithValue("@prod_stock_level", _prodStockLevel);
             command.Parameters.AddWithValue("@prod_stock_code", _prodStockCode);
@@ -152,13 +152,7 @@ namespace HWWilson.App_Code
 
     public class Employees:hwConn
     {
-        private Int64 _empId;
-        public Int64 empId
-        {
-            get { return _empId; }
-            set { _empId = value; }
-        }
-
+        
         private String _fName;
         public string fName
         {
@@ -180,6 +174,21 @@ namespace HWWilson.App_Code
             set { _roleId = value; }
         }
 
+        private String _userName;
+        public string userName
+        {
+            get { return _userName; }
+            set { _userName = value; }
+        }
+
+        private String _password;
+        public string password
+        {
+            get { return _password; }
+            set { _password = value; }
+        }
+
+
         public void AddNewEmp()
         // this method is used to add a new product to the HWWilson databse using stored procedure spAddProduct
         {
@@ -187,10 +196,11 @@ namespace HWWilson.App_Code
             command.Connection = ConnHWW;
             command.CommandText = "spAddEmployee";
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@employee_id", _empId);
             command.Parameters.AddWithValue("@emp_firstname", _fName);
             command.Parameters.AddWithValue("@emp_surname ", _Sname);
             command.Parameters.AddWithValue("@role_id ", _roleId);
+            command.Parameters.AddWithValue("@username ", _userName);
+            command.Parameters.AddWithValue("@userpassword", _password);
             ConnHWW.Open();
             command.ExecuteNonQuery();
             ConnHWW.Close();
