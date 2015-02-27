@@ -21,9 +21,9 @@ namespace HWWilson.HWWilson.Orders
             {
                 fillDdljobNo();
                 fillJobDesc();
-             }
+            }
             TxtBar.Focus();
-                      
+
         } // Closes Page_Load
 
         //on page load the job number drop down contain all job from the database
@@ -37,10 +37,10 @@ namespace HWWilson.HWWilson.Orders
             DDLjobNo.DataBind();
         }
 
-       /*
-        On page load a gridview is populated that shows the job number and job decription for all jobs.
-        * The user can review the gridview to identify the job nuumber if unkown
-        */
+        /*
+         On page load a gridview is populated that shows the job number and job decription for all jobs.
+         * The user can review the gridview to identify the job nuumber if unkown
+         */
         protected void fillJobDesc()
         { // populates a gridview with all job numbers
             JobNumbers myJob = new JobNumbers();
@@ -72,30 +72,39 @@ namespace HWWilson.HWWilson.Orders
             fillJobDesc();
         }
 
+        /* When a barcode is entered it checks if the session variable is null, if it is create a new order
+         * otherwise add products to the current order
+         */
         protected void NewBarcode(object sender, EventArgs e)
         {
             if (Session["sordernbr"] == null)
             {
-
                 Order newOrder = new Order();
                 newOrder.ordEmp = Convert.ToInt16(Session["userid"]);
                 newOrder.jobNo = Convert.ToString(DDLjobNo.SelectedValue);
                 newOrder.CreateNewOrder();
                 (Session["sordernbr"]) = newOrder.sordNo;
                 TextBox1.Text = Convert.ToString(Session["sordernbr"]);
-
-
+                updateOrder();
             }
             else
             {
-                updateOrder();
+                
             }
         }
-        
-        
+
+
         protected void updateOrder()
         {
-            TextBox1.Text = "session exists";
+            Order addOrder = new Order();
+            addOrder.sordNo = Convert.ToInt32(Session["sordernbr"]);
+            addOrder.barcode = Convert.ToInt64(TxtBar.Text);
+            addOrder.ordQty = 1;
+            TxtBar.Text = null;
+            addOrder.addOrderLines();
+            GVprods.DataSource = addOrder.addOrderLines();
+            GVjobDesc.DataBind(); 
+            
 
         }////closes the updateOrder class
     }//closed class bookout

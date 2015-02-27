@@ -18,7 +18,7 @@ namespace HWWilson.App_Code
 
     } // ends hwConn class
 
-    public class Products:hwConn
+    public class Products : hwConn
     {
         //defines the properties of the class
         private String _productName;
@@ -31,7 +31,7 @@ namespace HWWilson.App_Code
         private Int64 _prodBar;
         public Int64 prodBar
         {
-            get { return _prodBar;}
+            get { return _prodBar; }
             set { _prodBar = value; }
         }
 
@@ -65,7 +65,7 @@ namespace HWWilson.App_Code
         //End defining the class properties
 
         public SqlDataReader GetProduct()
-            //this method retrieves all products from the database using stored procedure spGetProducts
+        //this method retrieves all products from the database using stored procedure spGetProducts
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -77,7 +77,7 @@ namespace HWWilson.App_Code
         } // ends the GetProduct method
 
         public void AddNewProduct()
-            // this method is used to add a new product to the HWWilson databse using stored procedure spAddProduct
+        // this method is used to add a new product to the HWWilson databse using stored procedure spAddProduct
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -94,10 +94,10 @@ namespace HWWilson.App_Code
             ConnHWW.Close();
 
         }// closes the AddNewProduct methods
-        
+
     }//Closes the Products class
 
-    public class JobNumbers:hwConn
+    public class JobNumbers : hwConn
     {
 
         private String _jobNo;
@@ -114,7 +114,7 @@ namespace HWWilson.App_Code
             set { _jobDesc = value; }
         }
 
-        private String  _jobStatus;
+        private String _jobStatus;
         public string jobStatus
         {
             get { return _jobStatus; }
@@ -131,11 +131,11 @@ namespace HWWilson.App_Code
             SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
             return myReader;
         } // ends the GetProduct method
-        
+
         public SqlDataReader GetJobNoFilter()
         // this method is used to retrieve job description from the database using stroed procedure spGetJobDesc which requires a
         // a job number to be passed as a parameter
-        {           
+        {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
             command.CommandText = "spGetJobDesc";
@@ -143,16 +143,16 @@ namespace HWWilson.App_Code
             command.Parameters.AddWithValue("@job_number", _jobNo);
             ConnHWW.Open();
             SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
-            return myReader; 
-          
+            return myReader;
+
         } // ends the GetJobNoFilter method
 
-        
+
     }// closes the class JobNumbers
 
-    public class Employees:hwConn
+    public class Employees : hwConn
     {
-        
+
         private String _fName;
         public string fName
         {
@@ -209,7 +209,7 @@ namespace HWWilson.App_Code
 
     } // closes the employee class
 
-    public class Order:hwConn
+    public class Order : hwConn
     {
         private String _jobNo;
         public string jobNo
@@ -224,17 +224,40 @@ namespace HWWilson.App_Code
             get { return _ordEmp; }
             set { _ordEmp = value; }
         }
-        private int  _sordNo;
-        public int sordNo
+        private Int32 _sordNo;
+        public Int32 sordNo
         {
             get { return _sordNo; }
             set { _sordNo = value; }
         }
-        
-        public void CreateNewOrder()
-        // this method is used to add a new Order to the HWW databse using stored procedure spNewOrder
+
+        private Int32 _prodId;
+        public Int32 prodId
         {
-           
+            get { return _prodId; }
+            set { _prodId = value; }
+        }
+
+        private Int64 _barcode;
+        public Int64 barcode
+        {
+            get { return _barcode; }
+            set { _barcode = value; }
+        }
+
+        private Int32 _ordQty;
+        public Int32 ordQty
+        {
+            get { return _ordQty; }
+            set { _ordQty = value; }
+        }
+
+        /* this method is used to add a new Order to the HWW databse using stored procedure spNewOrder
+         * ordernumber and job number are passed as parameters. a new order is created and the orderid is returned from
+         * the stored procedure and updated in _sordNo. this is converted to a session variable in the bookout.aspx.cs
+        */
+        public Int32 CreateNewOrder()
+        {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
             command.CommandText = "spNewOrder";
@@ -244,14 +267,30 @@ namespace HWWilson.App_Code
             ConnHWW.Open();
             SqlDataReader reader = command.ExecuteReader();
             reader.Read();
-            sordNo = Convert.ToInt16(reader["orderId"]);
-            
-            
+            _sordNo = Convert.ToInt32(reader["orderId"]);
             ConnHWW.Close();
+             return _sordNo;
+
+        }// closes the CreateNewOrder methods
+
+        public SqlDataReader addOrderLines()
+
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spAddOrderLines2";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@orderId", _sordNo);
+            command.Parameters.AddWithValue("@barCode", _barcode);
+            command.Parameters.AddWithValue("@ordQty", _ordQty);
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader();
+            myReader.Read();
+            ConnHWW.Close();
+            return myReader;
             
-                
-        }// closes the AddNewProduct methods
-        
-        
+    
+
+        }// closes the CreateNewOrder methods
     }// Closes the Order Class
 } // closes the namespace
