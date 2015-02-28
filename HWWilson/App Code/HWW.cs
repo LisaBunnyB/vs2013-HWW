@@ -273,8 +273,7 @@ namespace HWWilson.App_Code
 
         }// closes the CreateNewOrder methods
 
-        public SqlDataReader addOrderLines()
-
+        public void addOrderLines()
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -284,13 +283,22 @@ namespace HWWilson.App_Code
             command.Parameters.AddWithValue("@barCode", _barcode);
             command.Parameters.AddWithValue("@ordQty", _ordQty);
             ConnHWW.Open();
-            SqlDataReader myReader = command.ExecuteReader();
-            myReader.Read();
+            command.ExecuteNonQuery();
             ConnHWW.Close();
-            return myReader;
-            
-    
+        }// addOrderLines
 
-        }// closes the CreateNewOrder methods
+
+        public SqlDataReader getOrderDetails()
+        //this method retrieves all products added to the current order by seesion id the database using stored procedure spGetProducts
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.Parameters.AddWithValue("@orderId", _sordNo);
+            command.CommandText = "spOrderDetails";
+            command.CommandType = CommandType.StoredProcedure;
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the GetProduct method
     }// Closes the Order Class
 } // closes the namespace

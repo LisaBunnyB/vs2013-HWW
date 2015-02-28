@@ -89,7 +89,7 @@ namespace HWWilson.HWWilson.Orders
             }
             else
             {
-                
+                updateOrder();
             }
         }
 
@@ -102,10 +102,17 @@ namespace HWWilson.HWWilson.Orders
             addOrder.ordQty = 1;
             TxtBar.Text = null;
             addOrder.addOrderLines();
-            GVprods.DataSource = addOrder.addOrderLines();
-            GVjobDesc.DataBind(); 
-            
+            fillOrderDetails();     
 
         }////closes the updateOrder class
+
+        protected void fillOrderDetails()
+        {
+            Order dispOrder = new Order();
+            dispOrder.sordNo = Convert.ToInt32(Session["sordernbr"]);
+            GVprods.DataSource = dispOrder.getOrderDetails();
+            GVprods.DataBind(); 
+    }
+
     }//closed class bookout
 }// closed namespace
