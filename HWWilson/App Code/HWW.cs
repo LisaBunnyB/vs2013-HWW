@@ -262,7 +262,7 @@ namespace HWWilson.App_Code
             command.Connection = ConnHWW;
             command.CommandText = "spNewOrder";
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@orderEmp", _ordEmp);
+            command.Parameters.AddWithValue("@orderEmp", _ordEmp);                  
             command.Parameters.AddWithValue("@jobNo", _jobNo);
             ConnHWW.Open();
             SqlDataReader reader = command.ExecuteReader();

@@ -57,7 +57,6 @@ namespace HWWilson.HWWilson.Orders
             myJob.jobNo = Convert.ToString(DDLjobNo.SelectedValue);
             GVjobDesc.DataSource = myJob.GetJobNoFilter();
             GVjobDesc.DataBind();
-            TextBox1.Text = Convert.ToString(DDLjobNo.SelectedValue);
             focus();
         }
         //Sets the focus to the barcode field to enure the barcode is always read into the system
@@ -84,7 +83,6 @@ namespace HWWilson.HWWilson.Orders
                 newOrder.jobNo = Convert.ToString(DDLjobNo.SelectedValue);
                 newOrder.CreateNewOrder();
                 (Session["sordernbr"]) = newOrder.sordNo;
-                TextBox1.Text = Convert.ToString(Session["sordernbr"]);
                 updateOrder();
             }
             else

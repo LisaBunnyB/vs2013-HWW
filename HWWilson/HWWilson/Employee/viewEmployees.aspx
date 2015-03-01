@@ -9,6 +9,6 @@
         <asp:BoundField DataField="role_id" HeaderText="role_id" SortExpression="role_id" />
     </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HWWilsonConnectionString %>" SelectCommand="SELECT [employee_id], [emp_firstname], [emp_surname], [role_id] FROM [tEmployee]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HWWConnectionString %>" SelectCommand="SELECT [employee_id], [emp_firstname], [emp_surname], [role_id] FROM [tEmployee]"></asp:SqlDataSource>
 </div>
 </asp:Content>

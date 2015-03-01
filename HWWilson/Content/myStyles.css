@@ -13,6 +13,8 @@ body {
     margin-bottom: 30px;
 }
 
+
+
 /*
 =============================================================================
 	Fonts & Typography
@@ -34,7 +36,11 @@ h2 {
 
 
 #HWWLogo {
-    width: 100%;
+    width: 75%;
+  }
+/*Removes the padding from the bootom of the HWWilson logo at header*/
+.marBot {
+    margin-bottom: 0px;
 }
 
 .navbar {

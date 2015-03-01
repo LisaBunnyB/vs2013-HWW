@@ -31,15 +31,6 @@ namespace HWWilson.HWWilson.Orders {
         protected global::System.Web.UI.WebControls.Button BtnAllJob;
         
         /// <summary>
-        /// GVjobDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVjobDesc;
-        
-        /// <summary>
         /// TxtBar control.
         /// </summary>
         /// <remarks>
@@ -49,13 +40,13 @@ namespace HWWilson.HWWilson.Orders {
         protected global::System.Web.UI.WebControls.TextBox TxtBar;
         
         /// <summary>
-        /// Button1 control.
+        /// GVjobDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.GridView GVjobDesc;
         
         /// <summary>
         /// GVprods control.
@@ -65,14 +56,5 @@ namespace HWWilson.HWWilson.Orders {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GVprods;
-        
-        /// <summary>
-        /// TextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
     }
 }
