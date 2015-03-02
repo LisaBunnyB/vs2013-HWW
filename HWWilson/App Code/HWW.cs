@@ -277,7 +277,7 @@ namespace HWWilson.App_Code
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
-            command.CommandText = "spAddOrderLines2";
+            command.CommandText = "spAddOrderLines3";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@orderId", _sordNo);
             command.Parameters.AddWithValue("@barCode", _barcode);
