@@ -24,6 +24,7 @@ namespace HWWilson.HWWilson.Orders
             }
             TxtBar.Focus();
 
+
         } // Closes Page_Load
 
         //on page load the job number drop down contain all job from the database
@@ -132,7 +133,9 @@ namespace HWWilson.HWWilson.Orders
 
         protected void ButBookout_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/HWWilson/Orders/continue-logout.aspx");
+            Session.Remove("sordernbr");
+            
         }
 
         protected void ButCancel_Click(object sender, EventArgs e)

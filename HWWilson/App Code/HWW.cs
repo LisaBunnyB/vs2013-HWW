@@ -273,6 +273,11 @@ namespace HWWilson.App_Code
 
         }// closes the CreateNewOrder methods
 
+        /* this method is used to add products to the orderDetail table in the database using the orderid created in
+        * CreateNewOrder(). The orderid, barcode and qty are passed as parameters to stored procedure spAddOrderLines3
+        * the SP checks if the orderid and prodid(obtained by barcode in the db) exists, if it does it adds the qty to
+         * the qty in the record, otherwise it adds a new record for the product
+       */
         public void addOrderLines()
         {
             SqlCommand command = new SqlCommand();
@@ -313,5 +318,12 @@ namespace HWWilson.App_Code
             SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
             return myReader;
         } // ends the GetProduct method
+
+        public void clearOrderId()
+        //
+        {
+           
+        } // ends the GetProduct method
+
     }// Closes the Order Class
 } // closes the namespace
