@@ -287,6 +287,19 @@ namespace HWWilson.App_Code
             ConnHWW.Close();
         }// addOrderLines
 
+        public void removeOrderLines()
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spRemoveItem";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@orderId", _sordNo);
+            command.Parameters.AddWithValue("@prodId", _prodId);
+            ConnHWW.Open();
+            command.ExecuteNonQuery();
+            ConnHWW.Close();
+           
+        }// Closes method removeOrderLines
 
         public SqlDataReader getOrderDetails()
         //this method retrieves all products added to the current order by seesion id the database using stored procedure spGetProducts

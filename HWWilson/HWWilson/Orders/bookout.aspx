@@ -22,7 +22,7 @@
     </asp:GridView>
     <br />
        
-    <asp:GridView ID="GVprods" runat="server" AutoGenerateColumns="False" CellPadding="5" BorderWidth="2px">
+    <asp:GridView ID="GVprods" runat="server" OnSelectedIndexChanged="GVprodsRemoveProduct" AutoGenerateColumns="False" CellPadding="5" BorderWidth="2px">
     <AlternatingRowStyle BackColor="#C5F08A" ForeColor="Black" />
     <Columns>
             <asp:BoundField DataField="product_name" HeaderText="Product Description" SortExpression="" />
@@ -33,5 +33,7 @@
         <HeaderStyle BackColor="#97CA51" BorderWidth="2px" HorizontalAlign="Center" />
         <SortedAscendingCellStyle BorderStyle="Double" />
    </asp:GridView>
+ <asp:Button ID="ButBookout" runat="server" OnClick="ButBookout_Click" Text="Confirm Order" />
+ <asp:Button ID="ButCancel" runat="server" OnClick="ButCancel_Click" Text="Cancel Order" />
 
 </asp:Content>

@@ -104,6 +104,24 @@ namespace HWWilson.HWWilson.Orders
 
         }////closes the updateOrder class
 
+        /* When the user seclects remove from the products gridview the product will be
+         * removed from OrderDetails Table.
+         */
+        protected void GVprodsRemoveProduct(object sender, EventArgs e)
+        { // Identies the row number that has been selected
+            GridViewRow row = GVprods.SelectedRow;
+            Order remove = new Order();
+            remove.sordNo = Convert.ToInt32(Session["sordernbr"]);
+            remove.prodId = Convert.ToInt32(row.Cells[1].Text);
+            /* the product id is the 2nd cell of the selected row (starts at 0). order number and product are passed
+             * to the removeOrderLines() method in HWW,CS
+             */
+            remove.removeOrderLines();
+            //the product is removed and the grdiview is updated
+            fillOrderDetails(); 
+
+         }
+
         protected void fillOrderDetails()
         {
             Order dispOrder = new Order();
@@ -111,6 +129,18 @@ namespace HWWilson.HWWilson.Orders
             GVprods.DataSource = dispOrder.getOrderDetails();
             GVprods.DataBind(); 
     }
+
+        protected void ButBookout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ButCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
 
     }//closed class bookout
 }// closed namespace
