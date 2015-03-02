@@ -22,12 +22,12 @@ namespace HWWilson
 
             int userId = 0;
             string roles = string.Empty;
-
+            Session["name"] = string.Empty;
             SqlConnection ConnHWW = new SqlConnection("Data Source=BUNNY-TOSH;Initial Catalog=HWW;Integrated Security=True");
 
             {
 
-                using (SqlCommand cmd = new SqlCommand("Validate_User_Role"))
+                using (SqlCommand cmd = new SqlCommand("Validate_User_Roles"))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -50,6 +50,15 @@ namespace HWWilson
                     catch 
                     {
                         Session["roles"] = null;
+                    }
+
+                    try
+                    {
+                        Session["name"] = Convert.ToString(reader["name"]);
+                    }
+                    catch
+                    {
+                        Session["name"] = null;
                     }
                     ConnHWW.Close();
 
