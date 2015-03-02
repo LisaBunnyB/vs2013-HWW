@@ -12,6 +12,7 @@ namespace HWWilson.HWWilson.Orders
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Remove("sordernbr");
+            
         }
 
         protected void ButNewOrder_Click(object sender, EventArgs e)
@@ -19,6 +20,14 @@ namespace HWWilson.HWWilson.Orders
            
             Response.Redirect("~/HWWilson/Orders/bookout.aspx"); 
             
+        }
+
+        protected void ButLogOut_Click(object sender, EventArgs e)
+        {
+            Context.GetOwinContext().Authentication.SignOut();
+            Session.Remove("roles");
+            Session.Remove("name");
+            Session.Remove("userid");
         }
             
     }
