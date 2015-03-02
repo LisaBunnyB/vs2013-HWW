@@ -78,7 +78,7 @@ namespace HWWilson
                 if (Session["roles"].ToString().Equals("Admin"))
                 {
                     returnsLink.Visible = true;
-                    employeeLinK.Visible = true;
+                    employeeLink.Visible = true;
                     productsLink.Visible = true;
                     suppliersLink.Visible = true;
                     orderLink.Visible = true;
@@ -86,7 +86,7 @@ namespace HWWilson
                 else if (Session["roles"].ToString().Equals("Office"))
                 {
                     returnsLink.Visible = true;
-                    employeeLinK.Visible = true;
+                    employeeLink.Visible = true;
                     productsLink.Visible = true;
                 }
                 else if (Session["roles"].ToString().Equals("Storeman"))

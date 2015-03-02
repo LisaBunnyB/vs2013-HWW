@@ -31,13 +31,31 @@ namespace HWWilson {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor returnsLink;
         
         /// <summary>
-        /// employeeLinK control.
+        /// employeeLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor employeeLinK;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor employeeLink;
+        
+        /// <summary>
+        /// emplLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor emplLink;
+        
+        /// <summary>
+        /// prodLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor prodLink;
         
         /// <summary>
         /// productsLink control.
