@@ -169,6 +169,7 @@
     <Content Include="HWWilson\Orders\bookout.aspx" />
     <Content Include="HWWilson\Orders\bookoutgoods.aspx" />
     <Content Include="HWWilson\Orders\continue-logout.aspx" />
+    <Content Include="HWWilson\Orders\orders.aspx" />
     <Content Include="HWWilson\Orders\returngoods.aspx" />
     <Content Include="HWWilson\Products\addProduct.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -387,6 +388,13 @@
     </Compile>
     <Compile Include="HWWilson\Orders\continue-logout.aspx.designer.cs">
       <DependentUpon>continue-logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HWWilson\Orders\orders.aspx.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HWWilson\Orders\orders.aspx.designer.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="HWWilson\Orders\returngoods.aspx.cs">
       <DependentUpon>returngoods.aspx</DependentUpon>
