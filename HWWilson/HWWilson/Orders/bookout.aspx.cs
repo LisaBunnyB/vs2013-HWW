@@ -154,6 +154,9 @@ namespace HWWilson.HWWilson.Orders
 
         protected void ButBookout_Click(object sender, EventArgs e)
         {
+            Order remove = new Order();
+            remove.sordNo = Convert.ToInt32(Session["sordernbr"]);
+            remove.removeOrder();
             Response.Redirect("~/HWWilson/Orders/continue-logout.aspx");
             Session.Remove("sordernbr");
             
@@ -161,8 +164,15 @@ namespace HWWilson.HWWilson.Orders
 
         protected void ButCancel_Click(object sender, EventArgs e)
         {
+            Order remove = new Order();
+            remove.sordNo = Convert.ToInt32(Session["sordernbr"]);
+            remove.cancelOrder();
+            Response.Redirect("~/HWWilson/Orders/continue-logout.aspx");
+            Session.Remove("sordernbr");
+         }
 
-        }
+        
+
     
 
     }//closed class bookout

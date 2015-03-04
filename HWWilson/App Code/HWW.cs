@@ -262,14 +262,14 @@ namespace HWWilson.App_Code
             command.Connection = ConnHWW;
             command.CommandText = "spNewOrder";
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@orderEmp", _ordEmp);                  
+            command.Parameters.AddWithValue("@orderEmp", _ordEmp);
             command.Parameters.AddWithValue("@jobNo", _jobNo);
             ConnHWW.Open();
             SqlDataReader reader = command.ExecuteReader();
             reader.Read();
             _sordNo = Convert.ToInt32(reader["orderId"]);
             ConnHWW.Close();
-             return _sordNo;
+            return _sordNo;
 
         }// closes the CreateNewOrder methods
 
@@ -312,14 +312,14 @@ namespace HWWilson.App_Code
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
-            command.CommandText = "spRemoveItem";
+            command.CommandText = "spRemoveItem2";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@orderId", _sordNo);
             command.Parameters.AddWithValue("@prodId", _prodId);
             ConnHWW.Open();
             command.ExecuteNonQuery();
             ConnHWW.Close();
-           
+
         }// Closes method removeOrderLines
 
         public SqlDataReader getOrderDetails()
@@ -335,11 +335,36 @@ namespace HWWilson.App_Code
             return myReader;
         } // ends the GetProduct method
 
-        public void clearOrderId()
-        //
+        /*This method is used when the user click cancel order from the bookout page. The orderId is passed as a parameter
+         * to spCancelOrder and the orderDetail records that match the id are deleted and then the order records matchin the 
+         * orderid are deleted
+         */
+        public void cancelOrder()
         {
-           
-        } // ends the GetProduct method
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spCancelOrder";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@orderId", _sordNo);
+            ConnHWW.Open();
+            command.ExecuteNonQuery();
+            ConnHWW.Close();
+
+        }// Closes method cancelOrder()
+
+        public void removeOrder()
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spRemoveOrder";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@orderId", _sordNo);
+            ConnHWW.Open();
+            command.ExecuteNonQuery();
+            ConnHWW.Close();
+
+        }// Closes method cancelOrderId()
+        
 
     }// Closes the Order Class
 } // closes the namespace
