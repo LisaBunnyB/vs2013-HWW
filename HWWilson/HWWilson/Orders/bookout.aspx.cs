@@ -59,7 +59,28 @@ namespace HWWilson.HWWilson.Orders
             GVjobDesc.DataSource = myJob.GetJobNoFilter();
             GVjobDesc.DataBind();
             focus();
+            // If the job number is changed after the order has been created call the updateJobNo();
+            if (Session["sordernbr"] != null)
+            {
+                updateJobNo();
+            }
+
         }
+
+        /*
+         * When the user selects a job number from the drop down list after the orderId has been created then call
+         * the changeOrderJob() method to update the job number in the order table.
+         */
+        protected void updateJobNo()
+        {
+            Order jobNo = new Order();
+            jobNo.sordNo = Convert.ToInt32(Session["sordernbr"]);
+            jobNo.jobNo = Convert.ToString(DDLjobNo.SelectedValue);
+            jobNo.changeOrderJob();
+            fillOrderDetails();
+
+        }////closes the updateJobNo class
+
         //Sets the focus to the barcode field to enure the barcode is always read into the system
         protected void focus()
         {
@@ -142,8 +163,7 @@ namespace HWWilson.HWWilson.Orders
         {
 
         }
-
-        
+    
 
     }//closed class bookout
 }// closed namespace

@@ -273,6 +273,22 @@ namespace HWWilson.App_Code
 
         }// closes the CreateNewOrder methods
 
+        /* this method is used to change the job number in the order table if the job number drop down is updated after the orderid
+         * has been created. The orderId session variable and the JobNo are passed as parameters to the stored procedure spChangeJobNo
+       */
+        public void changeOrderJob()
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spChangeJobNo";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@orderId", _sordNo);
+            command.Parameters.AddWithValue("@jobNo", _jobNo);
+            ConnHWW.Open();
+            command.ExecuteNonQuery();
+            ConnHWW.Close();
+        }// addOrderLines
+
         /* this method is used to add products to the orderDetail table in the database using the orderid created in
         * CreateNewOrder(). The orderid, barcode and qty are passed as parameters to stored procedure spAddOrderLines3
         * the SP checks if the orderid and prodid(obtained by barcode in the db) exists, if it does it adds the qty to
