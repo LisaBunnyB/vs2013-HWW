@@ -49,7 +49,7 @@
                 <div class="navbar-collapse collapse">
 
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" id="bookOutLink" href="~/HWWilson/Orders/bookout.aspx">Book out Goods</a></li>
+                        <li><a runat="server" id="bookOutLink" visible="false" href="~/HWWilson/Orders/bookout.aspx">Book out Goods</a></li>
                         <li><a runat="server" id="returnsLink" visible="false" href="~/HWWilson/Orders/returngoods.aspx">Return Goods</a></li>
                         <li><a runat="server" id="employeeLink" visible="false" href="~/HWWilson/Employee/employee.aspx">Employees</a></li>
                         <!--

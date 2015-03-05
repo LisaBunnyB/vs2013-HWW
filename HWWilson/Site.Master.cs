@@ -77,6 +77,7 @@ namespace HWWilson
             {
                 if (Session["roles"].ToString().Equals("Admin"))
                 {
+                    bookOutLink.Visible = true;
                     returnsLink.Visible = true;
                     employeeLink.Visible = true;
                     productsLink.Visible = true;
@@ -85,15 +86,17 @@ namespace HWWilson
                 }
                 else if (Session["roles"].ToString().Equals("Office"))
                 {
+                    bookOutLink.Visible = true;
                     returnsLink.Visible = true;
                     employeeLink.Visible = true;
                     productsLink.Visible = true;
                 }
                 else if (Session["roles"].ToString().Equals("Storeman"))
                 {
+                    bookOutLink.Visible = true;
                     returnsLink.Visible = true;
                 }
-                else
+                else if (Session["roles"].ToString().Equals("Trade"))
                 {
                     bookOutLink.Visible = true;
                 }

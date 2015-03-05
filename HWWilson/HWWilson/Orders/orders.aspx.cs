@@ -44,6 +44,8 @@ namespace HWWilson.HWWilson.Orders
             DDLjobNos.DataTextField = "job_number";
             DDLjobNos.DataValueField = "job_Number";
             DDLjobNos.DataBind();
+            DDLjobNos.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+           
         }
 
 
@@ -56,7 +58,7 @@ namespace HWWilson.HWWilson.Orders
             myOrder.jobNo = Convert.ToString(DDLjobNos.SelectedValue);
             GVOrders.DataSource = myOrder.getOrdersByJob();
             GVOrders.DataBind();
-            
+            DDLjobNos.SelectedValue = null;
          }
         //if the user click the button BtnAllOrders then the gridview displays all orders
         protected void BtnAllOrders_Click(object sender, EventArgs e)

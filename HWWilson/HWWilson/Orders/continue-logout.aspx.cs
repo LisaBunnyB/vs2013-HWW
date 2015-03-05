@@ -28,6 +28,7 @@ namespace HWWilson.HWWilson.Orders
             Session.Remove("roles");
             Session.Remove("name");
             Session.Remove("userid");
+            Response.Redirect("~/Login.aspx"); 
         }
             
     }

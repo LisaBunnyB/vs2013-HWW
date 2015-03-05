@@ -4,6 +4,7 @@
     <h1> <%:Session["name"] %> View all Orders</h1>
     <asp:Label ID="LblOrder" runat="server" Text="Select a job number"></asp:Label>
     <asp:DropDownList ID="DDLjobNos" OnSelectedIndexChanged="DDLjobNos_SelectedIndexChanged" AutoPostBack="true" runat="server"  >
+    <asp:ListItem Text="-- pick one --"></asp:ListItem>
     </asp:DropDownList>
      <asp:Button ID="BtnAllOrders" runat="server" OnClick="BtnAllOrders_Click" Text="Show all Orders" />
     <asp:Label ID="Label1" runat="server" Text="Please enter the start Date"></asp:Label>
