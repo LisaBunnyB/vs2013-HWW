@@ -343,7 +343,7 @@ namespace HWWilson.App_Code
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
-            command.CommandText = "spCancelOrder";
+            command.CommandText = "spUodateStockLevelOnCancel";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@orderId", _sordNo);
             ConnHWW.Open();
