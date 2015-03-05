@@ -121,7 +121,7 @@ namespace HWWilson.App_Code
             set { _jobStatus = value; }
         }
         public SqlDataReader GetJobNo()
-        //this method retrieves all products from the database using stored procedure spGetProducts
+        //this method retrieves all Job numbers from the database using stored procedure spGetJobNo
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -364,7 +364,34 @@ namespace HWWilson.App_Code
             ConnHWW.Close();
 
         }// Closes method cancelOrderId()
-        
 
+        public SqlDataReader getOrders()
+        //this method retrieves all Orers from the database using stored procedure spSelectAllOrders
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spSelectAllOrders";
+            command.CommandType = CommandType.StoredProcedure;
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the getOrders() method
+
+        public SqlDataReader getOrdersByJob()
+        //this method retrieves all Orers from the database using stored procedure spSelectAllOrders which requires a
+        // a job number to be passed as a parameter
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spSelectAllOrdersForJob";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@jobNo", _jobNo);
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the getOrders() method
+
+        
+        
     }// Closes the Order Class
 } // closes the namespace

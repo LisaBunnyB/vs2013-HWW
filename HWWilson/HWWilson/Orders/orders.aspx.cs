@@ -1,9 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Collections;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using HWWilson.App_Code;
+
 
 namespace HWWilson.HWWilson.Orders
 {
@@ -11,7 +18,50 @@ namespace HWWilson.HWWilson.Orders
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                fillDdljobNo();
+                fillOrders();
+            }
+        }
 
+
+        protected void fillOrders()
+        { // populates a gridview with all orders numbers
+            Order allOrders = new Order();
+            GVOrders.DataSource = allOrders.getOrders();
+            GVOrders.DataBind();
+        }// closes the fillorders
+
+        //on page load the job number drop down contain all job from the database
+        protected void fillDdljobNo()
+        { /* on page load the Drop down list is populated with all job numbers from the database
+           * Uses the same method as the job nuber drop dwon in bookout goods
+           */
+            JobNumbers myJob = new JobNumbers();
+            SqlDataReader drJob = myJob.GetJobNo();
+            DDLjobNos.DataSource = drJob;
+            DDLjobNos.DataTextField = "job_number";
+            DDLjobNos.DataValueField = "job_Number";
+            DDLjobNos.DataBind();
+        }
+
+
+        /*
+         * When the user selects a job number from the drop down list the gridview updates to orders for that one job
+         */
+        protected void DDLjobNos_SelectedIndexChanged(object sender, EventArgs e)
+        { // When the user selects a job number the gridview shows the description for that site
+            Order myOrder = new Order();
+            myOrder.jobNo = Convert.ToString(DDLjobNos.SelectedValue);
+            GVOrders.DataSource = myOrder.getOrdersByJob();
+            GVOrders.DataBind();
+            
+         }
+        //if the user click the button BtnAllOrders then the gridview displays all orders
+        protected void BtnAllOrders_Click(object sender, EventArgs e)
+        {
+            fillOrders();
         }
     }
 }
