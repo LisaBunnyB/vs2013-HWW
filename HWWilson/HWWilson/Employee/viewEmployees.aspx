@@ -1,14 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="viewEmployees.aspx.cs" Inherits="HWWilson.HWWilson.Employee.viewEmployees" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div class="pagecontent">
-<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="employee_id" DataSourceID="SqlDataSource1">
+    <br />
+    <asp:GridView ID="GVEmployee" runat="server" AutoGenerateColumns="False" CellPadding="5" BorderWidth="2px">
+    <AlternatingRowStyle BackColor="#C5F08A" ForeColor="Black" />
     <Columns>
-        <asp:BoundField DataField="employee_id" HeaderText="employee_id" ReadOnly="True" SortExpression="employee_id" />
-        <asp:BoundField DataField="emp_firstname" HeaderText="emp_firstname" SortExpression="emp_firstname" />
-        <asp:BoundField DataField="emp_surname" HeaderText="emp_surname" SortExpression="emp_surname" />
-        <asp:BoundField DataField="role_id" HeaderText="role_id" SortExpression="role_id" />
+        <asp:BoundField DataField="employee_id"  HeaderText="Employee Id   "  SortExpression="" />
+        <asp:BoundField DataField="emp_firstname" HeaderText="Firstname    " SortExpression="" />
+        <asp:BoundField DataField="emp_surname" HeaderText="Surname" SortExpression="" />
+        <asp:BoundField DataField="role_description" HeaderText="Role" SortExpression="" />
     </Columns>
+    <HeaderStyle BackColor="#97CA51" BorderWidth="2px" HorizontalAlign="Center" />
+        
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HWWConnectionString %>" SelectCommand="SELECT [employee_id], [emp_firstname], [emp_surname], [role_id] FROM [tEmployee]"></asp:SqlDataSource>
+   
 </div>
 </asp:Content>

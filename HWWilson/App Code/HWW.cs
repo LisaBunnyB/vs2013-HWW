@@ -207,6 +207,19 @@ namespace HWWilson.App_Code
 
         }// closes the AddNewProduct methods
 
+
+        public SqlDataReader getEmployees()
+        //this method retrieves all Employees from the database using stored procedure spViewAllEmployees
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spViewAllEmployees";
+            command.CommandType = CommandType.StoredProcedure;
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the getEmployees) method
+
     } // closes the employee class
 
     public class Order : hwConn
