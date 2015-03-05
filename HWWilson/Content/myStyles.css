@@ -13,8 +13,10 @@ body {
     margin-bottom: 30px;
 }
 
-
-
+input, select
+{
+    margin-bottom:10px;
+}
 /*
 =============================================================================
 	Fonts & Typography
