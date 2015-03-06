@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="pagecontent">
-        <h1>Add a new Product</h1>
+        <h1><%:Session["name"] %> - Add a new Product</h1>
         <%-- This is where the main content of the page is placed. The header and Footer are in the Site.Master file--%>
         <asp:Label ID="LblProdName" Width="150" runat="server" Text="Product Name"></asp:Label>
-        <asp:TextBox ID="TextProdName" Width="150" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextProdName" Width="250" runat="server"></asp:TextBox>
         <%--Validate the text box is not blank --%>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter the products name" ControlToValidate="TextProdName" CssClass="ErrorMsg" ForeColor="Red"></asp:RequiredFieldValidator><br />
         <asp:Label ID="LblProdBarcode" Width="150" runat="server" Text="Product Barcode"></asp:Label>
@@ -22,6 +22,7 @@
         <asp:TextBox ID="TextProdStockCode" Width="150" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please enter a stock code for the product" ControlToValidate="TextProdStockCode" CssClass="ErrorMsg" ForeColor="Red"></asp:RequiredFieldValidator><br />
         <br />
+         <asp:Label ID="LblProdCat" Width="150" runat="server" Text="Product Category"></asp:Label>
         <asp:DropDownList ID="DDLProdCat" runat="server" DataSourceID="SqlDataSource1" DataTextField="prod_cat_desc" DataValueField="prod_cat_id"></asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HWWilsonConnectionString %>" SelectCommand="SELECT [prod_cat_desc], [prod_cat_id] FROM [tProductCategory]"></asp:SqlDataSource>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please select a category ID for the product" ControlToValidate="DDLProdCat" CssClass="ErrorMsg" ForeColor="Red"></asp:RequiredFieldValidator><br />

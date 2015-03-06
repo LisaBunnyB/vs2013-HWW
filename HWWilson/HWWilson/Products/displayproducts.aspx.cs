@@ -20,10 +20,6 @@ namespace HWWilson
             Products myProds = new Products();
             SqlDataReader myDataReader = myProds.GetProduct();
             gvProducts.DataSource = myDataReader;
-
-            // Or a more efficient coding recognises that myHouse.GetProducts() returns a DataReader.
-            // gvHouses.DataSource = myHouse.GetProducts();
-
             gvProducts.DataBind();
         }
     }
