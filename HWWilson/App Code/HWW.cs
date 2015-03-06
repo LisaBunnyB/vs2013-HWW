@@ -76,6 +76,46 @@ namespace HWWilson.App_Code
             return myReader;
         } // ends the GetProduct method
 
+        public SqlDataReader GetStockCode()
+        //this method retrieves all Job numbers from the database using stored procedure spGetstockCat
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spGetstockCat";
+            command.CommandType = CommandType.StoredProcedure;
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the GetProduct method 
+
+        public SqlDataReader GetProdName()
+        /*this method retrieves all products from the database using stored procedure spGetJobNo passing name
+         * as a parameter and returning products with a similar name
+         */
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spLikeProdName";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@name", _productName);
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the GetProduct method 
+
+        public SqlDataReader GetStockCat()
+        //this method retrieves all products from the database using stored procedure spProductsByCat
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spProductsByCat";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Cat", _prodStockCode);
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the GetProduct method
+
         public void AddNewProduct()
         // this method is used to add a new product to the HWWilson databse using stored procedure spAddProduct
         {
@@ -404,7 +444,7 @@ namespace HWWilson.App_Code
             return myReader;
         } // ends the getOrders() method
 
-        
-        
+
+
     }// Closes the Order Class
 } // closes the namespace
