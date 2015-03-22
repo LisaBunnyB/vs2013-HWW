@@ -100,14 +100,12 @@
                 </div>
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
+           </div>
+        <footer>
                 <div id="footerText">
                     <p>HW Wilson Ltd 2015| &nbsp; &nbsp; Lisa Bunclark</p>
                 </div>
             </footer>
-
-        </div>
-
     </form>
 </body>
 </html>

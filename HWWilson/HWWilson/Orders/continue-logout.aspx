@@ -6,5 +6,5 @@
         <asp:Button  ID="ButNewOrder" CssClass="largeBut" OnClick="ButNewOrder_Click" runat="server" Text="Create another order" />
    
         <asp:Button  ID="ButLogOut" CssClass="largeBut" OnClick="ButLogOut_Click" runat="server" Text="Logout" />
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+   
 </asp:Content>
