@@ -27,9 +27,7 @@
     <Columns>
             <asp:BoundField DataField="product_name" HeaderText="Product Description" SortExpression="" />
             <asp:BoundField DataField="product_id" HeaderText="Product ID" SortExpression="" />
-        
-            <asp:BoundField DataField="order_qty" HeaderText="Quantity" SortExpression="" />
-        
+            <asp:BoundField DataField="order_qty" HeaderText="Quantity" SortExpression="" />            
             <asp:ButtonField CommandName="Select" Text="Remove"/>
          </Columns>
         <HeaderStyle BackColor="#97CA51" BorderWidth="2px" HorizontalAlign="Center" />
