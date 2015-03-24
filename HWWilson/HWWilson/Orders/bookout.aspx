@@ -27,12 +27,16 @@
     <Columns>
             <asp:BoundField DataField="product_name" HeaderText="Product Description" SortExpression="" />
             <asp:BoundField DataField="product_id" HeaderText="Product ID" SortExpression="" />
+        
             <asp:BoundField DataField="order_qty" HeaderText="Quantity" SortExpression="" />
+        
             <asp:ButtonField CommandName="Select" Text="Remove"/>
          </Columns>
         <HeaderStyle BackColor="#97CA51" BorderWidth="2px" HorizontalAlign="Center" />
         <SortedAscendingCellStyle BorderStyle="Double" />
    </asp:GridView>
+    
+    
  <asp:Button ID="ButBookout" runat="server" OnClick="ButBookout_Click" Text="Confirm Order" />
  <asp:Button ID="ButCancel" runat="server" OnClick="ButCancel_Click" Text="Cancel Order" />
 

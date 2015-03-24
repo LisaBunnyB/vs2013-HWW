@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="orders.aspx.cs" Inherits="HWWilson.HWWilson.Orders.orders" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1> <%:Session["name"] %> View all Orders</h1>
+    <h1><span> <%:Session["name"] %></span> View all Orders</h1>
     <asp:Label ID="LblOrder" runat="server" Text="Select a job number"></asp:Label>
     <asp:DropDownList ID="DDLjobNos" OnSelectedIndexChanged="DDLjobNos_SelectedIndexChanged" AutoPostBack="true" runat="server"  >
     <asp:ListItem Text="-- pick one --"></asp:ListItem>
