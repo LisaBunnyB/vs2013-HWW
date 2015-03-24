@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Add Employee" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="addEmployee.aspx.cs" Inherits="HWWilson.HWWilson.Employee.addEmployee" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1><%:Session["name"] %>Add a new Employee</h1>
+    <h1><span><%:Session["name"] %></span>Add a new Employee</h1>
 
         <%-- This is where the main content of the page is placed. The header and Footer are in the Site.Master file--%>
         <asp:Label ID="LblEmpFName" Width="150" runat="server" Text="Employee First Name"></asp:Label>

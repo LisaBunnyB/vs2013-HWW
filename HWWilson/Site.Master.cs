@@ -108,6 +108,12 @@ namespace HWWilson
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut();
+         
+            Session.Remove("roles");
+            Session.Remove("name");
+            Session.Remove("userid");
+            Response.Redirect("~/Login.aspx"); 
+
         }
     }
 

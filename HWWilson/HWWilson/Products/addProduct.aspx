@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="pagecontent">
-        <h1><%:Session["name"] %> - Add a new Product</h1>
+        <h1><span><%:Session["name"] %></span> - Add a new Product</h1>
         <%-- This is where the main content of the page is placed. The header and Footer are in the Site.Master file--%>
         <asp:Label ID="LblProdName" Width="150" runat="server" Text="Product Name"></asp:Label>
         <asp:TextBox ID="TextProdName" Width="250" runat="server"></asp:TextBox>

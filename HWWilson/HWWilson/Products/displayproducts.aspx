@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="displayproducts.aspx.cs" Inherits="HWWilson.displayproducts" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="pagecontent">
-        <h1> <%:Session["name"] %>Display all Products</h1>
+        <h1><span> <%:Session["name"] %></span>Display all Products</h1>
         <br />
         <br />
         <asp:Label ID="LblSelect" runat="server" Text="Select a Product Category"></asp:Label>
