@@ -27,8 +27,14 @@ namespace HWWilson
             addProd.prodStockCode = Convert.ToString(TextProdStockCode.Text);
             addProd.prodCatID = Convert.ToInt32(DDLProdCat.SelectedValue);
             addProd.AddNewProduct();
+            String errNumber = Convert.ToString(addProd.errNo);
 
-
+            if (addProd.errNo.Equals(2627) && (addProd.errMsg.Contains("dbo.tBarcode")))
+                TxtProdConfirm.Text = "The barcode already exists in the database" ;
+            if (TxtProdConfirm.Text != "")
+             TxtProdConfirm.Visible = true;
+            
+            
         }////closes the addNewProduct class
     } //closes the addProduct class
 } // closes the namespace

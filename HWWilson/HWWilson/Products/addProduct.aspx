@@ -28,7 +28,7 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please select a category ID for the product" ControlToValidate="DDLProdCat" CssClass="ErrorMsg" ForeColor="Red"></asp:RequiredFieldValidator><br />
         <br />
         <asp:Button ID="ProdSubmit" OnClick="addNewProduct" runat="server" Text="Submit Product" /><br />
-        
+       <asp:TextBox ID="TxtProdConfirm" Width="600" Height="100" runat  ="server"></asp:TextBox><br />
         </div>
 </asp:Content>
 

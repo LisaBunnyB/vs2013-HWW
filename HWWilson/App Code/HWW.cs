@@ -62,6 +62,22 @@ namespace HWWilson.App_Code
             get { return _prodCatID; }
             set { _prodCatID = value; }
         }
+
+        private Int32 _errNo;
+        public Int32 errNo
+        {
+            get { return _errNo; }
+            set { _errNo = value; }
+        }
+
+         private String _errMsg;
+        public String errMsg
+        {
+            get { return _errMsg; }
+            set { _errMsg = value; }
+        }
+
+
         //End defining the class properties
 
         public SqlDataReader GetProduct()
@@ -119,6 +135,8 @@ namespace HWWilson.App_Code
         public void AddNewProduct()
         // this method is used to add a new product to the HWWilson databse using stored procedure spAddProduct
         {
+            try
+            {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
             command.CommandText = "spAddProduct";
@@ -131,7 +149,23 @@ namespace HWWilson.App_Code
             command.Parameters.AddWithValue("@prod_cat_id", _prodCatID);
             ConnHWW.Open();
             command.ExecuteNonQuery();
+            }
+            catch (SqlException sqlex)
+                {
+                
+                {
+                    errNo = sqlex.Number;
+                    errMsg = sqlex.Message;
+                }
+                }
+
+              
+                    
+               
             ConnHWW.Close();
+            
+            
+
 
         }// closes the AddNewProduct methods
 
