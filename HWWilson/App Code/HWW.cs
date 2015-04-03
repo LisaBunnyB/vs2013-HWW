@@ -21,6 +21,7 @@ namespace HWWilson.App_Code
     public class Products : hwConn
     {
         //defines the properties of the class
+        
         private String _productName;
         public string productName
         {

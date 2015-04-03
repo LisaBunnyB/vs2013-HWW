@@ -19,6 +19,8 @@ namespace HWWilson
 
         protected void addNewProduct(object sender, EventArgs e)
         {
+            if (Page.IsValid)
+            { 
             Products addProd = new Products();
             addProd.productName = Convert.ToString(TextProdName.Text);
             addProd.prodBar = Convert.ToInt64(TextProdBarcode.Text);
@@ -52,6 +54,7 @@ namespace HWWilson
                 TextProdStockLevel.Text = string.Empty;
                 TextProdStockCode.Text = string.Empty;
             }
+            } //closes if page is valid
         }//closes the addNewProduct class
        
     } //closes the addProduct class
