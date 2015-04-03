@@ -12,7 +12,7 @@ namespace HWWilson
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-              
+
         }// closes Page_load
 
 
@@ -27,15 +27,14 @@ namespace HWWilson
             addProd.prodStockCode = Convert.ToString(TextProdStockCode.Text);
             addProd.prodCatID = Convert.ToInt32(DDLProdCat.SelectedValue);
             addProd.AddNewProduct();
-            TextBox1.Text = Convert.ToString(addProd.errNo);
-            TextBox2.Text = Convert.ToString(addProd.errMsg);
+
             String errNumber = Convert.ToString(addProd.errNo);
 
             if (addProd.errNo.Equals(2627) && (addProd.errMsg.Contains("Error in Adding barcode")))
-                {
-                    LblDupBarcode.Text = "The barcode already exists in the database";
-                    LblDupStockCode.Text = string.Empty;
-                }
+            {
+                LblDupBarcode.Text = "The barcode already exists in the database";
+                LblDupStockCode.Text = string.Empty;
+            }
             else if (addProd.errNo.Equals(2627) && (addProd.errMsg.Contains("Error in Adding product")))
             {
                 LblDupStockCode.Text = "The stock code already exists in the database";
@@ -45,9 +44,15 @@ namespace HWWilson
             {
                 LblDupBarcode.Text = string.Empty;
                 LblDupStockCode.Text = string.Empty;
+                TxtProdAdded.Visible = true;
+                TxtProdAdded.Text = "The product " + addProd.productName + " has been successfully added to the database";
+                TextProdName.Text = string.Empty;
+                TextProdBarcode.Text = string.Empty;
+                TextProdMinLevel.Text = string.Empty;
+                TextProdStockLevel.Text = string.Empty;
+                TextProdStockCode.Text = string.Empty;
             }
-              
-            
-        }////closes the addNewProduct class
+        }//closes the addNewProduct class
+       
     } //closes the addProduct class
 } // closes the namespace
