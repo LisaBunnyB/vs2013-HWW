@@ -8,11 +8,12 @@
         <asp:TextBox ID="TextProdName" Width="250" runat="server"></asp:TextBox>
         <%--Validate the text box is not blank --%>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter the products name" ControlToValidate="TextProdName" CssClass="ErrorMsg" ForeColor="Red"></asp:RequiredFieldValidator><br />
-        <asp:Label ID="LblProdBarcode" Width="150" runat="server" Text="Product Barcode"></asp:Label>
+        <asp:Label ID="LblProdBarcode" Width="150" runat="server" Text="Product Barcode" ></asp:Label>
         <asp:TextBox ID="TextProdBarcode" Width="150" runat="server"></asp:TextBox>
+        <asp:Label ID="LblDupBarcode" Width="300" runat="server" Text="" ForeColor="Red"></asp:Label>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter a barcode for the product" ControlToValidate="TextProdBarcode" CssClass="ErrorMsg" ForeColor="Red"></asp:RequiredFieldValidator>
         <br />
-        <asp:Label ID="LblProdMinLevel" Width="150" runat="server" Text="Minimum stock level"></asp:Label>
+         <asp:Label ID="LblProdMinLevel" Width="150" runat="server" Text="Minimum stock level"></asp:Label>
         <asp:TextBox ID="TextProdMinLevel" Width="150" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter the minimum stock level for the product" ControlToValidate="TextProdMinLevel" CssClass="ErrorMsg" ForeColor="Red"></asp:RequiredFieldValidator><br />
         <asp:Label ID="LblProdStockLevel" Width="150" runat="server" Text="Amount to add to stock"></asp:Label>
@@ -20,6 +21,7 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please enter the quantity you are booking into stock" ControlToValidate="TextProdStockLevel" CssClass="ErrorMsg" ForeColor="Red"></asp:RequiredFieldValidator><br />
         <asp:Label ID="LblProdStockCode" Width="150" runat="server" Text="Stock Code"></asp:Label>
         <asp:TextBox ID="TextProdStockCode" Width="150" runat="server"></asp:TextBox>
+        <asp:Label ID="LblDupStockCode" Width="300" runat="server" Text="" ForeColor="Red"></asp:Label>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please enter a stock code for the product" ControlToValidate="TextProdStockCode" CssClass="ErrorMsg" ForeColor="Red"></asp:RequiredFieldValidator><br />
         <br />
          <asp:Label ID="LblProdCat" Width="150" runat="server" Text="Product Category"></asp:Label>
@@ -28,7 +30,9 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please select a category ID for the product" ControlToValidate="DDLProdCat" CssClass="ErrorMsg" ForeColor="Red"></asp:RequiredFieldValidator><br />
         <br />
         <asp:Button ID="ProdSubmit" OnClick="addNewProduct" runat="server" Text="Submit Product" /><br />
-       <asp:TextBox ID="TxtProdConfirm" Width="600" Height="100" runat  ="server"></asp:TextBox><br />
+      
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox2"  Width="600" Height="100" runat="server"></asp:TextBox>
         </div>
 </asp:Content>
 
