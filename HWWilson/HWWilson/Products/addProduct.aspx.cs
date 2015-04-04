@@ -79,18 +79,12 @@ namespace HWWilson
             } //closes if page is valid
         }//closes the addNewProduct class
 
-        protected void ClearForm(object sender, EventArgs e)
+        protected void CancelProd_Click(object sender, EventArgs e)
         {
-            LblDupBarcode.Text = string.Empty;
-            LblDupStockCode.Text = string.Empty;
-            TxtProdAdded.Visible = true;
-            TextProdName.Text = string.Empty;
-            TextProdBarcode.Text = string.Empty;
-            TextProdMinLevel.Text = string.Empty;
-            TextProdStockLevel.Text = string.Empty;
-            TextProdStockCode.Text = string.Empty;
-            DDLProdCat.ClearSelection();
+            
+            Response.Redirect("~/HWWilson/Products/addProduct.aspx");
+           
         }
-        
+                       
     } //closes the addProduct class
 } // closes the namespace

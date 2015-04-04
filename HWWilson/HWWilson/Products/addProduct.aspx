@@ -101,7 +101,7 @@
             ForeColor="Red"
             Display="Dynamic">
         </asp:RequiredFieldValidator>
-        <br />
+       
         <%--When the data is INSERTED into the database if the stock code exists (PK violation) an error message will be displayed here --%>
         <asp:Label ID="LblDupStockCode" Width="300" runat="server" Text="" ForeColor="Red"></asp:Label>
         <br />
@@ -119,8 +119,9 @@
         </asp:RequiredFieldValidator>
         <br />
 
-        <asp:Button ID="ProdSubmit" OnClick="addNewProduct" runat="server" Text="Submit Product" /><br />
-        <asp:Button ID="ClearFormBut" OnClick="ClearForm" runat="server" Text="Clear Form" /><br />
+        <asp:Button ID="ProdSubmit" OnClick="addNewProduct" runat="server" Text="Submit Product" />
+        <asp:Button ID="CancelProd" CausesValidation="False" OnClick="CancelProd_Click" runat="server" Text="Button" />
+        <br />
         <asp:TextBox ID="TxtProdAdded" Width="600" Height="100" runat="server"></asp:TextBox>
     </div>
 </asp:Content>
