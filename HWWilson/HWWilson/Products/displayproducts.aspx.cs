@@ -35,7 +35,7 @@ namespace HWWilson
 
         //on page load the stock category drop down contain all categories from the database
         protected void fillDDLStockCat()
-        { // on page load the Drop down list is populated with all job numbers from the database
+        { // on page load the Drop down list is populated with all product categories from the database
             Products allProducts = new Products();
             SqlDataReader ddlCat = allProducts.GetStockCode();
             DDLStockCat.DataSource = ddlCat;
