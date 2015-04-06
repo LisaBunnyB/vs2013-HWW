@@ -119,8 +119,8 @@
         </asp:RequiredFieldValidator>
         <br />
 
-        <asp:Button ID="ProdSubmit" OnClick="addNewProduct" runat="server" Text="Submit Product" />
-        <asp:Button ID="CancelProd" CausesValidation="False" OnClick="CancelProd_Click" runat="server" Text="Button" />
+        <asp:Button ID="ProdSubmit" OnClick="addNewProduct" runat="server" Text="Submit Product" ForeColor="#009933" CssClass="marRight" />
+        <asp:Button ID="CancelProd" CausesValidation="False" OnClick="CancelProd_Click" runat="server" Text="Cancel Product" ForeColor="#FF3300" />
         <br />
         <asp:TextBox ID="TxtProdAdded" Width="600" Height="100" runat="server"></asp:TextBox>
     </div>

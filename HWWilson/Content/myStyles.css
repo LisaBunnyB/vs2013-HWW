@@ -13,6 +13,9 @@ body {
     margin-bottom: 30px;
 }
 
+.marRight {
+    margin-right: 50px;
+}
 input, select
 {
     margin-bottom:10px;
