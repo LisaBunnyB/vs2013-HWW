@@ -28,5 +28,12 @@ namespace HWWilson.HWWilson.Products
         {
             Response.Redirect("changeProducts.aspx");
         }
+
+        protected void ButnAddBarcode_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("addBarcode.aspx");
+        }
+        
+        
     }
 }
