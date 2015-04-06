@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Add-Product.aspx.cs" Inherits="HWWilson.addProduct" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="addProduct.aspx.cs" Inherits="HWWilson.addProduct" %>
 
 <%-- This is where the main content of the page is placed. The header and Footer are in the Site.Master file--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -119,10 +119,10 @@
         </asp:RequiredFieldValidator>
         <br />
 
-        <asp:Button ID="ProdSubmit" OnClick="addNewProduct" runat="server" Text="Submit Product" CssClass="marRight" ForeColor="#009900" />
-        <asp:Button ID="CancelProd" CausesValidation="False" OnClick="CancelProd_Click" runat="server" Text="Cancel Product Creation" ForeColor="Red" />
+        <asp:Button ID="ProdSubmit" OnClick="addNewProduct" runat="server" Text="Submit Product" />
+        <asp:Button ID="CancelProd" CausesValidation="False" OnClick="CancelProd_Click" runat="server" Text="Button" />
         <br />
-        <asp:TextBox ID="TxtProdAdded" Width="600" Visible="false" Height="50" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TxtProdAdded" Width="600" Height="100" runat="server"></asp:TextBox>
     </div>
 </asp:Content>
 

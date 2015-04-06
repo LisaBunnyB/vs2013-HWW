@@ -22,13 +22,13 @@ namespace HWWilson.HWWilson.Products {
         protected global::System.Web.UI.WebControls.Button ButnAddPrd;
         
         /// <summary>
-        /// ButAddBarcode control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButAddBarcode;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// ButnViewPrd control.
