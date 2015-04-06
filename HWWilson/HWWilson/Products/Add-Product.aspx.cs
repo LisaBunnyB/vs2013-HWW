@@ -66,6 +66,7 @@ namespace HWWilson
                 {
                     //displays a confirmation that the product has been added to the database
                     TxtProdAdded.Text = "The product " + addProd.productName + " has been successfully added to the database";
+                                   
                     LblDupBarcode.Text = string.Empty;
                     LblDupStockCode.Text = string.Empty;
                     TxtProdAdded.Visible = true;
@@ -82,7 +83,7 @@ namespace HWWilson
         protected void CancelProd_Click(object sender, EventArgs e)
         {
             
-            Response.Redirect("~/HWWilson/Products/addProduct.aspx");
+            Response.Redirect("~/HWWilson/Products/Add-Product.aspx");
            
         }
                        

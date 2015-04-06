@@ -194,7 +194,8 @@
     <Content Include="HWWilson\Orders\continue-logout.aspx" />
     <Content Include="HWWilson\Orders\orders.aspx" />
     <Content Include="HWWilson\Orders\returngoods.aspx" />
-    <Content Include="HWWilson\Products\addProduct.aspx" />
+    <Content Include="HWWilson\Products\Add-Barcode.aspx" />
+    <Content Include="HWWilson\Products\Add-Product.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -428,12 +429,19 @@
     <Compile Include="HWWilson\Orders\returngoods.aspx.designer.cs">
       <DependentUpon>returngoods.aspx</DependentUpon>
     </Compile>
-    <Compile Include="HWWilson\Products\addProduct.aspx.cs">
-      <DependentUpon>addProduct.aspx</DependentUpon>
+    <Compile Include="HWWilson\Products\Add-Barcode.aspx.cs">
+      <DependentUpon>Add-Barcode.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HWWilson\Products\addProduct.aspx.designer.cs">
-      <DependentUpon>addProduct.aspx</DependentUpon>
+    <Compile Include="HWWilson\Products\Add-Barcode.aspx.designer.cs">
+      <DependentUpon>Add-Barcode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HWWilson\Products\Add-Product.aspx.cs">
+      <DependentUpon>Add-Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HWWilson\Products\Add-Product.aspx.designer.cs">
+      <DependentUpon>Add-Product.aspx</DependentUpon>
     </Compile>
     <Compile Include="App Code\HWW.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

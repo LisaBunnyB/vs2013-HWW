@@ -16,7 +16,7 @@ namespace HWWilson.HWWilson.Products
 
         protected void ButnAddPrd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("addProduct.aspx");
+            Response.Redirect("Add-Product.aspx");
         }
 
         protected void ButnViewPrd_Click(object sender, EventArgs e)
@@ -27,6 +27,11 @@ namespace HWWilson.HWWilson.Products
         protected void ButnChgPrd_Click(object sender, EventArgs e)
         {
             Response.Redirect("changeProducts.aspx");
+        }
+
+        protected void ButAddBarcode_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Add-Barcode.aspx");
         }
     }
 }

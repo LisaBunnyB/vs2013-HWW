@@ -10,7 +10,7 @@
         <div class="col-md-4">
             <h2>Add a barcode</h2>
             <p>To add an additional barcode to an existing product</p>
-            <asp:Button ID="Button1" runat="server" OnClick="ButnViewPrd_Click" Text="Add a Barcode" />
+            <asp:Button ID="ButAddBarcode" runat="server" OnClick="ButAddBarcode_Click" Text="Add a Barcode" />
         </div>
         <div class="col-md-4">
             <h2>View all Products</h2>
