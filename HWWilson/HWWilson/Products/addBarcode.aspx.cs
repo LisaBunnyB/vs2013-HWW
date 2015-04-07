@@ -18,11 +18,10 @@ namespace HWWilson
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
+             
                 fillDDLSelectCat();
                 fillProdCat();
-            }
+        
         }// closes Page_load
 
         protected void fillDDLSelectCat()
@@ -53,20 +52,6 @@ namespace HWWilson
         }// closes DDLSelectCat_SelectedIndexChanged
 
 
-
-        protected void GVProds2_SelectedIndexChanged(object sender, EventArgs e)
-        { // Identies the row number that has been selected on the gridview
-            GridViewRow row = GVProds2.SelectedRow;
-            Products catProd = new Products();
-            catProd.prodID = Convert.ToInt16(row.Cells[0].Text);
-            GVProds2.DataSource = catProd.GetProductByID();
-            GVProds2.DataBind();
-            GVProds3.DataSource = catProd.GetProductByID();
-            GVProds3.DataBind();
-
-
-        }// closes GVProds2_SelectedIndexChanged
-
         protected void ButnShowAllProds_Click(object sender, EventArgs e)
         {
             fillProdCat();
@@ -91,19 +76,11 @@ namespace HWWilson
             prod.prodBar = Convert.ToInt64(TxtBarcodeSearch.Text);
             GVProds2.DataSource = prod.GetProductByBarcode();
             GVProds2.DataBind();
-            GVProds3.DataSource = prod.GetProductByBarcode();
-            GVProds3.DataBind();
-
+           
+            
         }
 
-        protected void TxtProdBarcode_TextChanged(object sender, EventArgs e)
-        {
-
-            
-            TxtAddBarcodeConfirmation.Text = "The barcode " + " " + TxtProdBarcode.Text + "will be added to product ID ";
-
-
-        }//closes TxtProdBarcode_TextChanged
+        
 
     }//closes addBarcode
 }//Closes namespace
