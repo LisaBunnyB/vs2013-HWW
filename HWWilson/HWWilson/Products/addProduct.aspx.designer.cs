@@ -31,22 +31,22 @@ namespace HWWilson {
         protected global::System.Web.UI.WebControls.TextBox TextProdName;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// RequiredFieldValidtxtproduct_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidtxtproduct_name;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// RegularExpressionValidatxtproduct_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatxtproduct_name;
         
         /// <summary>
         /// LblProdBarcode control.
@@ -67,22 +67,22 @@ namespace HWWilson {
         protected global::System.Web.UI.WebControls.TextBox TextProdBarcode;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// RequiredFieldValidatTextProdBarcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatTextProdBarcode;
         
         /// <summary>
-        /// RegularExpressionValidator2 control.
+        /// RegularExpressionValidatTextProdBarcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatTextProdBarcode;
         
         /// <summary>
         /// LblDupBarcode control.

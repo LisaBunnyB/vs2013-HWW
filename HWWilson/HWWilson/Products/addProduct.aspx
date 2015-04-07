@@ -8,7 +8,7 @@
         <asp:Label ID="LblProdName" Width="150" runat="server" Text="Product Name"></asp:Label>
         <asp:TextBox ID="TextProdName" Width="250" runat="server"></asp:TextBox>
         <%--Validates a product name has been entered --%>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+        <asp:RequiredFieldValidator ID="RequiredFieldValidtxtproduct_name" runat="server"
             ErrorMessage="Please enter the products name"
             ControlToValidate="TextProdName"
             CssClass="ErrorMsg"
@@ -16,7 +16,7 @@
             Display="Dynamic">
         </asp:RequiredFieldValidator>
         <%--Validates the product name does not exceed 100 characters --%>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+        <asp:RegularExpressionValidator ID="RegularExpressionValidatxtproduct_name" runat="server"
             ErrorMessage="The product name should contain between 5 and 100 Characters"
             ControlToValidate="TextProdName"
             CssClass="ErrorMsg"
@@ -28,7 +28,7 @@
         <asp:Label ID="LblProdBarcode" Width="150" runat="server" Text="Product Barcode"></asp:Label>
         <asp:TextBox ID="TextProdBarcode" Width="150" runat="server"></asp:TextBox>
         <%--Validates a barcode has been entered --%>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+        <asp:RequiredFieldValidator ID="RequiredFieldValidatTextProdBarcode" runat="server"
             ErrorMessage="Please enter a barcode for the product"
             ControlToValidate="TextProdBarcode"
             CssClass="ErrorMsg"
@@ -36,7 +36,7 @@
             Display="Dynamic">
         </asp:RequiredFieldValidator>
         <%--Validates a 13 digit number for the barcode has been entered --%>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
+        <asp:RegularExpressionValidator ID="RegularExpressionValidatTextProdBarcode" runat="server"
             ErrorMessage="The Barcode should be a 13 digit number"
             ControlToValidate="TextProdBarcode"
             CssClass="ErrorMsg"
@@ -80,7 +80,7 @@
             Display="Dynamic">
         </asp:RequiredFieldValidator>
         <%--Validates stock level between 1 and 10000 has been entered --%>
-        <%--Validates a stock level has been entered --%>
+
         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"
             ErrorMessage="The amount to add to stock level be a number between 1 and 1000 number"
             ControlToValidate="TextProdStockLevel"
