@@ -54,7 +54,7 @@ namespace HWWilson
             TextBox txtprod_stock_level = (TextBox)row.FindControl("txtprod_stock_level");
             TextBox txtprod_stock_code = (TextBox)row.FindControl("txtprod_stock_code");
             TextBox txtprod_cat_desc = (TextBox)row.FindControl("tprod_cat_desc");
-
+            DropDownList DDLCat = (DropDownList)row.FindControl("DDLCat");
             Products changeProd = new Products();
             changeProd.prodID = Convert.ToInt16(GVEditProducts.DataKeys[e.RowIndex].Value.ToString());
             changeProd.prodBar = Convert.ToInt64(txtProductBarcode.Text);
@@ -62,6 +62,7 @@ namespace HWWilson
             changeProd.prodMinLevel = Convert.ToInt32(txtproduct_min_level.Text);
             changeProd.prodStockLevel = Convert.ToInt32(txtprod_stock_level.Text);
             changeProd.prodStockCode = Convert.ToString(txtprod_stock_code.Text);
+            changeProd.prodCatID = Convert.ToInt32(DDLCat.SelectedValue);
             changeProd.AmendProduct();
             String errNumber = Convert.ToString(changeProd.errNo);
 

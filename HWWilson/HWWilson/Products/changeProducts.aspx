@@ -3,12 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1><span><%:Session["name"] %></span>- Change the details of a product</h1>
 
-    <asp:GridView ID="GVEditProducts" runat="server" AutoGenerateColumns="False" 
-        AllowSorting="True" 
+    <asp:GridView ID="GVEditProducts" runat="server" AutoGenerateColumns="False"
+        AllowSorting="True"
         DataKeyNames="product_id"
-        onrowcancelingedit="GVEditProducts_RowCancelingEdit"
-        onrowediting="GVEditProducts_RowEditing"
-        onrowupdating="GVEditProducts_RowUpdating">
+        OnRowCancelingEdit="GVEditProducts_RowCancelingEdit"
+        OnRowEditing="GVEditProducts_RowEditing"
+        OnRowUpdating="GVEditProducts_RowUpdating">
         <Columns>
             <asp:CommandField ButtonType="Button" ShowEditButton="true" ShowCancelButton="true" />
 
@@ -30,7 +30,7 @@
                     <asp:TextBox runat="server" ID="txtproduct_name" Text='<%# Eval("product_name")%>' />
                 </EditItemTemplate>
             </asp:TemplateField>
-             <asp:TemplateField HeaderText="Min Level">
+            <asp:TemplateField HeaderText="Min Level">
                 <ItemTemplate>
                     <%# Eval("product_min_level")%>
                 </ItemTemplate>
@@ -46,7 +46,7 @@
                     <asp:TextBox runat="server" ID="txtprod_stock_level" Text='<%# Eval("prod_stock_level")%>' />
                 </EditItemTemplate>
             </asp:TemplateField>
-             <asp:TemplateField HeaderText="Stock Code">
+            <asp:TemplateField HeaderText="Stock Code">
                 <ItemTemplate>
                     <%# Eval("prod_stock_code")%>
                 </ItemTemplate>
@@ -59,10 +59,13 @@
                     <%# Eval("prod_cat_desc")%>
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:TextBox runat="server" ID="txtprod_cat_desc" Text='<%# Eval("prod_cat_desc")%>' />
+                    <asp:DropDownList ID="DDLCat" runat="server" DataSourceID="SqlDataSource1" DataTextField="prod_cat_desc" DataValueField="prod_cat_id"></asp:DropDownList>
+
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HWWConnectionString %>" SelectCommand="SELECT * FROM [tProductCategory]"></asp:SqlDataSource>
+
                 </EditItemTemplate>
             </asp:TemplateField>
-           
+
         </Columns>
     </asp:GridView>
 
