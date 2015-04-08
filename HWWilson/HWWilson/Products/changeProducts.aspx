@@ -150,7 +150,7 @@
     </asp:GridView>
 
 
-    <asp:TextBox ID="TxtAmendConf" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TxtAmendConf" width="600" Height="200" runat="server"></asp:TextBox>
 
 
 </asp:Content>

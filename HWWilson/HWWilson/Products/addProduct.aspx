@@ -60,7 +60,7 @@
         </asp:RequiredFieldValidator>
         <%--Validates a minimum stock level between 1 and 10000 has been entered --%>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"
-            ErrorMessage="The minimum stock level must be a number between 1 and 1000 number"
+            ErrorMessage="The minimum stock level must be a number between 1 and 1000"
             ControlToValidate="TextProdMinLevel"
             CssClass="ErrorMsg"
             ForeColor="Red"
@@ -82,7 +82,7 @@
         <%--Validates stock level between 1 and 10000 has been entered --%>
 
         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"
-            ErrorMessage="The amount to add to stock level be a number between 1 and 1000 number"
+            ErrorMessage="The amount to add to stock level must be a number between 1 and 1000"
             ControlToValidate="TextProdStockLevel"
             CssClass="ErrorMsg"
             ForeColor="Red"
