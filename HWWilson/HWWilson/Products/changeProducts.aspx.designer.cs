@@ -13,13 +13,13 @@ namespace HWWilson {
     public partial class changeProducts {
         
         /// <summary>
-        /// GVEditProducts control.
+        /// TxtAmendError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVEditProducts;
+        protected global::System.Web.UI.WebControls.TextBox TxtAmendError;
         
         /// <summary>
         /// TxtAmendConf control.
@@ -29,5 +29,14 @@ namespace HWWilson {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtAmendConf;
+        
+        /// <summary>
+        /// GVEditProducts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVEditProducts;
     }
 }

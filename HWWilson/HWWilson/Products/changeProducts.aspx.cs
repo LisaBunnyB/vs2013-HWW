@@ -37,12 +37,16 @@ namespace HWWilson
             e.Cancel = true;
             GVEditProducts.EditIndex = -1;
             BindDataGV();
+            TxtAmendConf.Text = "No Product Details have been  amended";
+            TxtAmendConf.Visible = true;
         }
 
         protected void GVEditProducts_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GVEditProducts.EditIndex = e.NewEditIndex;
-            BindDataGV();   
+            BindDataGV();
+            GVEditProducts.Rows[e.NewEditIndex].FindControl("txtProductBarcode").Focus();
+
         }
 
         protected void GVEditProducts_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -68,19 +72,23 @@ namespace HWWilson
 
             if (changeProd.errNo.Equals(2627) && (changeProd.errMsg.Contains("Error in Adding barcode")))
             {
-                TxtAmendConf.Text = "The barcode already exists in the database";
+                TxtAmendError.Text = "The barcode already exists in the database";
+                TxtAmendError.Visible = true;
+                TxtAmendConf.Visible = false;
                           
             }
             else if (changeProd.errNo.Equals(2627) && (changeProd.errMsg.Contains("Error in Adding product")))
             {
-                TxtAmendConf.Text = "The stock code already exists in the database";
-                
+                TxtAmendError.Text = "The stock code already exists in the database";
+                TxtAmendError.Visible = true;
+                TxtAmendConf.Visible = false;
             }
             else
             {
                 //displays a confirmation that the product has been added to the database
-                TxtAmendConf.Text = changeProd.errNo + "The product has been successfully added to the database";
-                
+                TxtAmendConf.Text = "The product details have been successfully changed in the database";
+                TxtAmendConf.Visible = true;
+                TxtAmendError.Visible = false;
             }
             updategrid();
 

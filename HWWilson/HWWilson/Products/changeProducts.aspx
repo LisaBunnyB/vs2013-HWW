@@ -2,6 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1><span><%:Session["name"] %></span>- Change the details of a product</h1>
+    <%-- Creates a text box that will be displayed if any errors occur when changing a products details --%>
+    <asp:TextBox ID="TxtAmendError" width="600" Visible="false" Height="40" runat="server" ForeColor="Red"></asp:TextBox>
+    <%-- Creates a text box that will be displayed to confirm the product details have been changed --%>
+    <asp:TextBox ID="TxtAmendConf" width="600" Visible="false" Height="40" runat="server" ></asp:TextBox>
     <%-- Creates an editable grdiview to enable the user to amend the details entered for a product --%>
     <asp:GridView ID="GVEditProducts" runat="server" AutoGenerateColumns="False"
         AllowSorting="True"
@@ -43,7 +47,7 @@
                 </EditItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Product Description">
+            <asp:TemplateField HeaderText="Product Name">
                 <ItemTemplate>
                     <%# Eval("product_name")%>
                 </ItemTemplate>
@@ -150,7 +154,7 @@
     </asp:GridView>
 
 
-    <asp:TextBox ID="TxtAmendConf" width="600" Height="200" runat="server"></asp:TextBox>
+    
 
 
 </asp:Content>

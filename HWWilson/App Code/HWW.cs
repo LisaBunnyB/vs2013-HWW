@@ -21,12 +21,19 @@ namespace HWWilson.App_Code
     public class Products : hwConn
     {
         //defines the properties of the class
-        
+
         private String _productName;
         public string productName
         {
             get { return _productName; }
             set { _productName = value; }
+        }
+
+        private Int16 _prodID;
+        public Int16 prodID
+        {
+            get { return _prodID; }
+            set { _prodID = value; }
         }
 
         private Int64 _prodBar;
@@ -71,7 +78,7 @@ namespace HWWilson.App_Code
             set { _errNo = value; }
         }
 
-         private String _errMsg;
+        private String _errMsg;
         public String errMsg
         {
             get { return _errMsg; }
@@ -93,8 +100,60 @@ namespace HWWilson.App_Code
             return myReader;
         } // ends the GetProduct method
 
+        public SqlDataReader GetProductByID()
+        //this method retrieves the product matching the selected product ID from the database using stored procedure spGetProductsByID
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spGetProductsByID";
+            command.Parameters.AddWithValue("@prodID", _prodID);
+            command.CommandType = CommandType.StoredProcedure;
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the GetProductByID method
+
+        public SqlDataReader CheckBarcode()
+        //this method passes a barcode to the database and confirms if it exists
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spCheckBarcodeExists";
+            command.Parameters.AddWithValue("@barcode", _prodBar);
+            command.CommandType = CommandType.StoredProcedure;
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader();
+             myReader.Read();
+             
+            try
+            {
+                errNo = Convert.ToInt32(myReader["barcode"]);
+            }
+               
+            catch
+            {
+                errNo = Convert.ToInt32(myReader[""]);
+            }
+            
+            ConnHWW.Close();
+            return myReader;         
+        } // ends the getOrders() method
+
+        public SqlDataReader GetProductByBarcode()
+        //this method retrieves the product matching the barcode entered by the user from the database using stored procedure spGetProductsByBarcode
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = ConnHWW;
+            command.CommandText = "spGetProductsByBarcode";
+            command.Parameters.AddWithValue("@barcode", _prodBar);
+            command.CommandType = CommandType.StoredProcedure;
+            ConnHWW.Open();
+            SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            return myReader;
+        } // ends the GetProductByBarcode method
+
         public SqlDataReader GetStockCode()
-        //this method retrieves all Job numbers from the database using stored procedure spGetstockCat
+        //Retrieves all products category ID's and Descriptions used to populate DDL lists of product categories
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -106,7 +165,7 @@ namespace HWWilson.App_Code
         } // ends the GetProduct method 
 
         public SqlDataReader GetProdName()
-        /*this method retrieves all products from the database using stored procedure spGetJobNo passing name
+        /*this method retrieves all products from the database using stored procedure spLikeProdName passing name
          * as a parameter and returning products with a similar name
          */
         {
@@ -121,7 +180,7 @@ namespace HWWilson.App_Code
         } // ends the GetProduct method 
 
         public SqlDataReader GetStockCat()
-        //this method retrieves all products from the database using stored procedure spProductsByCat
+        //this method retrieves all products matching the category parameter from the database using stored procedure spProductsByCat
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -131,6 +190,7 @@ namespace HWWilson.App_Code
             ConnHWW.Open();
             SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
             return myReader;
+
         } // ends the GetProduct method
 
         public void AddNewProduct()
@@ -138,37 +198,82 @@ namespace HWWilson.App_Code
         {
             try
             {
-            SqlCommand command = new SqlCommand();
-            command.Connection = ConnHWW;
-            command.CommandText = "spAddProduct";
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@product_name", _productName);
-            command.Parameters.AddWithValue("@barcode", _prodBar);
-            command.Parameters.AddWithValue("@product_min_level", _prodMinLevel);
-            command.Parameters.AddWithValue("@prod_stock_level", _prodStockLevel);
-            command.Parameters.AddWithValue("@prod_stock_code", _prodStockCode);
-            command.Parameters.AddWithValue("@prod_cat_id", _prodCatID);
-            ConnHWW.Open();
-            command.ExecuteNonQuery();
+                SqlCommand command = new SqlCommand();
+                command.Connection = ConnHWW;
+                command.CommandText = "spAddProduct";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@product_name", _productName);
+                command.Parameters.AddWithValue("@barcode", _prodBar);
+                command.Parameters.AddWithValue("@product_min_level", _prodMinLevel);
+                command.Parameters.AddWithValue("@prod_stock_level", _prodStockLevel);
+                command.Parameters.AddWithValue("@prod_stock_code", _prodStockCode);
+                command.Parameters.AddWithValue("@prod_cat_id", _prodCatID);
+                ConnHWW.Open();
+                command.ExecuteNonQuery();
             }
-                
             catch (SqlException sqlex)
-                {
-                
+            {
                 {
                     errNo = sqlex.Number;
                     errMsg = sqlex.Message;
                 }
-                }
-
-              
-                    
-               
+            }
             ConnHWW.Close();
-            
-            
+        }// closes the AddNewProduct methods
 
+        public void AmendProduct()
+        // this method is used to amend the details of a product using stored procedure spUpDateProduct
+        {
+             try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = ConnHWW;
+                command.CommandText = "spUpDateProduct";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@product_ID", _prodID);
+                command.Parameters.AddWithValue("@product_name", _productName);
+                command.Parameters.AddWithValue("@barcode", _prodBar);
+                command.Parameters.AddWithValue("@product_min_level", _prodMinLevel);
+                command.Parameters.AddWithValue("@prod_stock_level", _prodStockLevel);
+                command.Parameters.AddWithValue("@prod_stock_code", _prodStockCode);
+                command.Parameters.AddWithValue("@prod_cat_id", _prodCatID);
+                ConnHWW.Open();
+                command.ExecuteNonQuery();
+            }
+             catch (SqlException sqlex)
+             {
+                 {
+                     errNo = sqlex.Number;
+                     errMsg = sqlex.Message;
+                 }
+             }
+                       ConnHWW.Close();
+        }// closes the  AmendProduct method
 
+         public void AddBarcodeToProduct()
+        // this method is used to add a new barcode to an existing product in the HWWilson databse using stored procedure spAddBarcode
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = ConnHWW;
+                command.CommandText = "spAddBarcode";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@productID", _prodID);
+                command.Parameters.AddWithValue("@barcode", _prodBar);
+                ConnHWW.Open();
+                command.ExecuteNonQuery();
+            }
+
+            catch (SqlException sqlex)
+            {
+
+                {
+                    errNo = sqlex.Number;
+                    errMsg = sqlex.Message;
+                }
+            }
+            ConnHWW.Close();
         }// closes the AddNewProduct methods
 
     }//Closes the Products class

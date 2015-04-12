@@ -183,6 +183,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="HWWilson\Products\changeProducts.aspx" />
     <Content Include="Content\myStyles.css" />
     <Content Include="HWWilson\Employee\addEmployee.aspx" />
     <Content Include="HWWilson\Employee\changeEmployee.aspx" />
@@ -194,11 +195,11 @@
     <Content Include="HWWilson\Orders\continue-logout.aspx" />
     <Content Include="HWWilson\Orders\orders.aspx" />
     <Content Include="HWWilson\Orders\returngoods.aspx" />
+    <Content Include="HWWilson\Products\addBarcode.aspx" />
     <Content Include="HWWilson\Products\addProduct.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="HWWilson\Products\changeProducts.aspx" />
     <Content Include="HWWilson\Products\displayproducts.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="HWWilson\Images\HW-WILSON-LOGO.jpg" />
@@ -365,6 +366,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HWWilson\Products\changeProducts.aspx.cs">
+      <DependentUpon>changeProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HWWilson\Products\changeProducts.aspx.designer.cs">
+      <DependentUpon>changeProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HWWilson\Employee\addEmployee.aspx.cs">
       <DependentUpon>addEmployee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -428,6 +436,13 @@
     <Compile Include="HWWilson\Orders\returngoods.aspx.designer.cs">
       <DependentUpon>returngoods.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HWWilson\Products\addBarcode.aspx.cs">
+      <DependentUpon>addBarcode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HWWilson\Products\addBarcode.aspx.designer.cs">
+      <DependentUpon>addBarcode.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HWWilson\Products\addProduct.aspx.cs">
       <DependentUpon>addProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -446,13 +461,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="HWWilson\Products\changeProducts.aspx.cs">
-      <DependentUpon>changeProducts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HWWilson\Products\changeProducts.aspx.designer.cs">
-      <DependentUpon>changeProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="HWWilson\Products\displayproducts.aspx.cs">
       <DependentUpon>displayproducts.aspx</DependentUpon>
