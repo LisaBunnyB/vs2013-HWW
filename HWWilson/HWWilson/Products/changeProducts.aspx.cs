@@ -46,6 +46,8 @@ namespace HWWilson
             GVEditProducts.EditIndex = e.NewEditIndex;
             BindDataGV();
             GVEditProducts.Rows[e.NewEditIndex].FindControl("txtProductBarcode").Focus();
+            TxtAmendConf.Visible = false;
+            TxtAmendError.Visible = false;
 
         }
 

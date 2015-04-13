@@ -191,7 +191,6 @@
     <Content Include="HWWilson\Employee\viewEmployees.aspx" />
     <Content Include="HWWilson\Images\HW-WILSON-LOGO_04.jpg" />
     <Content Include="HWWilson\Orders\bookout.aspx" />
-    <Content Include="HWWilson\Orders\bookoutgoods.aspx" />
     <Content Include="HWWilson\Orders\continue-logout.aspx" />
     <Content Include="HWWilson\Orders\orders.aspx" />
     <Content Include="HWWilson\Orders\returngoods.aspx" />
@@ -407,13 +406,6 @@
     </Compile>
     <Compile Include="HWWilson\Orders\bookout.aspx.designer.cs">
       <DependentUpon>bookout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="HWWilson\Orders\bookoutgoods.aspx.cs">
-      <DependentUpon>bookoutgoods.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HWWilson\Orders\bookoutgoods.aspx.designer.cs">
-      <DependentUpon>bookoutgoods.aspx</DependentUpon>
     </Compile>
     <Compile Include="HWWilson\Orders\continue-logout.aspx.cs">
       <DependentUpon>continue-logout.aspx</DependentUpon>
