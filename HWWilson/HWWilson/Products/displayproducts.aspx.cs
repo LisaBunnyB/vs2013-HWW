@@ -56,6 +56,7 @@ namespace HWWilson
         protected void BtnAllCats_Click(object sender, EventArgs e)
         {
             fillStockCat();
+            TxtBarcodeSearch.Text = string.Empty;
         }
 
         protected void TxtProdDesc_TextChanged(object sender, EventArgs e)
@@ -65,6 +66,16 @@ namespace HWWilson
             prodName.productName = Convert.ToString(TxtProdDesc.Text);
             gvProducts.DataSource = prodName.GetProdName();
             gvProducts.DataBind();
+        }
+
+        protected void TxtBarcodeSearch_TextChanged(object sender, EventArgs e)
+        {   // When the user enters a barcode the matching product is returned from the database
+            Products prod = new Products();
+            prod.prodBar = Convert.ToInt64(TxtBarcodeSearch.Text);
+            gvProducts.DataSource = prod.GetProductByBarcode();
+            gvProducts.DataBind();
+
+
         }
     }
 }

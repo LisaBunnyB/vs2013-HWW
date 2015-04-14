@@ -56,7 +56,7 @@ namespace HWWilson
         {
             fillProdCat();
             TxtProductDesc.Text = string.Empty;
-            TxtBarcodeSearch.Text = string.Empty;
+         
             DDLSelectCat.ClearSelection();
 
         }
@@ -70,15 +70,7 @@ namespace HWWilson
 
         }
 
-        protected void TxtBarcodeSearch_TextChanged(object sender, EventArgs e)
-        {   // When the user enters a barcode the matching product is returned from the database
-            Products prod = new Products();
-            prod.prodBar = Convert.ToInt64(TxtBarcodeSearch.Text);
-            GVProds2.DataSource = prod.GetProductByBarcode();
-            GVProds2.DataBind();
-           
-            
-        }
+        
 
         
 

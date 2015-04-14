@@ -7,12 +7,13 @@
     <%-- Creates a text box that will be displayed to confirm the product details have been changed --%>
     <asp:TextBox ID="TxtAmendConf" width="600" Visible="false" Height="40" runat="server" ></asp:TextBox>
     <%-- Creates an editable grdiview to enable the user to amend the details entered for a product --%>
-    <asp:GridView ID="GVEditProducts" runat="server" AutoGenerateColumns="False"
+    <asp:GridView ID="GVEditProducts" runat="server" AutoGenerateColumns="False"  CellPadding="5" BorderWidth="2px"
         AllowSorting="True"
         DataKeyNames="product_id"
         OnRowCancelingEdit="GVEditProducts_RowCancelingEdit"
         OnRowEditing="GVEditProducts_RowEditing"
         OnRowUpdating="GVEditProducts_RowUpdating">
+        <AlternatingRowStyle BackColor="#C5F08A" ForeColor="Black" />
         <Columns>
             <%--Shows the edit, update and cancel buttons --%>
             <asp:CommandField ButtonType="Button" ShowEditButton="true" ShowCancelButton="true" />
@@ -151,6 +152,7 @@
             </asp:TemplateField>
 
         </Columns>
+        <HeaderStyle BackColor="#97CA51" BorderWidth="2px" HorizontalAlign="Center" />
     </asp:GridView>
 
 

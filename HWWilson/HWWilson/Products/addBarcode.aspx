@@ -63,8 +63,7 @@
     <asp:Label ID="LblProductName" runat="server" Text="Enter a product Description"></asp:Label>
     <asp:TextBox ID="TxtProductDesc" AutoPostBack="true" runat="server" OnTextChanged="TxtProductDesc_TextChanged" CssClass="marRight"></asp:TextBox>
     <%--Creates a label and a text box to search by barcode --%>
-    <asp:Label ID="Lblbarcode" runat="server" Text="Enter a barcode"></asp:Label>
-    <asp:TextBox ID="TxtBarcodeSearch" AutoPostBack="true" runat="server" OnTextChanged="TxtBarcodeSearch_TextChanged"></asp:TextBox><br />
+   
     <asp:GridView ID="GVProds2" runat="server" AutoGenerateColumns="False" CellPadding="5" BorderWidth="2px">
         <AlternatingRowStyle BackColor="#C5F08A" ForeColor="Black" />
         <Columns>

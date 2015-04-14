@@ -10,6 +10,8 @@
          <asp:Button ID="BtnAllCats" runat="server" OnClick="BtnAllCats_Click" Text="Show all Products" /><br />
         <asp:Label ID="LblProdName" runat="server" Text="Enter a product Description"></asp:Label>
         <asp:TextBox ID="TxtProdDesc" AutoPostBack="true" runat="server" OnTextChanged="TxtProdDesc_TextChanged"></asp:TextBox>
+         <asp:Label ID="Lblbarcode" runat="server" Text="Enter a barcode"></asp:Label>
+    <asp:TextBox ID="TxtBarcodeSearch" AutoPostBack="true" runat="server" OnTextChanged="TxtBarcodeSearch_TextChanged"></asp:TextBox><br />
         <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="False"  CellPadding="5" BorderWidth="2px">
             
         <AlternatingRowStyle BackColor="#C5F08A" ForeColor="Black" />
