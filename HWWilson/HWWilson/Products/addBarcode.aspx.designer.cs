@@ -85,24 +85,6 @@ namespace HWWilson {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
-        /// LblInstructions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblInstructions;
-        
-        /// <summary>
-        /// TxtAddBarcodeConfirmation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtAddBarcodeConfirmation;
-        
-        /// <summary>
         /// ButnConfBarcode control.
         /// </summary>
         /// <remarks>
@@ -112,57 +94,21 @@ namespace HWWilson {
         protected global::System.Web.UI.WebControls.Button ButnConfBarcode;
         
         /// <summary>
-        /// LblSelectCat control.
+        /// ButCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSelectCat;
+        protected global::System.Web.UI.WebControls.Button ButCancel;
         
         /// <summary>
-        /// DDLSelectCat control.
+        /// TxtAddBarcodeConfirmation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLSelectCat;
-        
-        /// <summary>
-        /// ButnShowAllProds control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButnShowAllProds;
-        
-        /// <summary>
-        /// LblProductName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblProductName;
-        
-        /// <summary>
-        /// TxtProductDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtProductDesc;
-        
-        /// <summary>
-        /// GVProds2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVProds2;
+        protected global::System.Web.UI.WebControls.TextBox TxtAddBarcodeConfirmation;
     }
 }

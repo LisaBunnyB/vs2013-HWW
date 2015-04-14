@@ -46,7 +46,7 @@ namespace HWWilson
                 addProd.prodBar = Convert.ToInt64(TextProdBarcode.Text);
                 addProd.prodMinLevel = Convert.ToInt32(TextProdMinLevel.Text);
                 addProd.prodStockLevel = Convert.ToInt32(TextProdStockLevel.Text);
-                addProd.prodStockCode = Convert.ToString(TextProdStockCode.Text);
+                addProd.prodStockCode = Convert.ToString(TextProdStockCode.Text).ToUpper();
                 addProd.prodCatID = Convert.ToInt32(DDLProdCat.SelectedValue);
                 addProd.AddNewProduct();
 
