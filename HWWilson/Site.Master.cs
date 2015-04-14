@@ -81,7 +81,6 @@ namespace HWWilson
                     returnsLink.Visible = true;
                     employeeLink.Visible = true;
                     productsLink.Visible = true;
-                    suppliersLink.Visible = true;
                     orderLink.Visible = true;
                 }
                 else if (Session["roles"].ToString().Equals("Office"))

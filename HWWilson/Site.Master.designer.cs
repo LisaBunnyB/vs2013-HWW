@@ -67,15 +67,6 @@ namespace HWWilson {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor productsLink;
         
         /// <summary>
-        /// suppliersLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor suppliersLink;
-        
-        /// <summary>
         /// orderLink control.
         /// </summary>
         /// <remarks>
