@@ -15,7 +15,9 @@ namespace HWWilson
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Login1.UserName = "Trade";
+            SetFocus(Login1.FindControl("Password"));
+            
         }
         protected void Login1_Authenticate(object sender, EventArgs e)
         {
