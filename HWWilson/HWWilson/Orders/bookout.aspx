@@ -33,9 +33,9 @@
         <HeaderStyle BackColor="#97CA51" BorderWidth="2px" HorizontalAlign="Center" />
         <SortedAscendingCellStyle BorderStyle="Double" />
    </asp:GridView>
+   <br />
     
-    
- <asp:Button ID="ButBookout" runat="server" OnClick="ButBookout_Click" Text="Confirm Order" />
- <asp:Button ID="ButCancel" runat="server" OnClick="ButCancel_Click" Text="Cancel Order" />
+ <asp:Button ID="ButBookout" runat="server" OnClick="ButBookout_Click" ForeColor="#009933" CssClass="marRight" Text="Confirm Order" />
+ <asp:Button ID="ButCancel" runat="server" OnClick="ButCancel_Click" ForeColor="#FF3300" Text="Cancel Order" />
 
 </asp:Content>
