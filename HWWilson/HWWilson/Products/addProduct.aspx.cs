@@ -45,7 +45,7 @@ namespace HWWilson
 
             if (Page.IsValid)
             {
-                // the methos passes the product details entered by the user to the AddNewProduct() method in the HWW.cs file
+                // the method passes the product details entered by the user to the AddNewProduct() method in the HWW.cs file
                 Products addProd = new Products();
                 addProd.productName = Convert.ToString(TextProdName.Text);
                 addProd.prodBar = Convert.ToInt64(TextProdBarcode.Text);
