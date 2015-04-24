@@ -17,64 +17,63 @@ namespace HWWilson.HWWilson.Orders
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //The first time the page loads the two methods are called
             if (!IsPostBack)
             {
-                fillDdljobNo();
-                fillJobDesc();
+                fillDdljobNo2();
+                fillJobDesc2();
             }
             TxtBar.Focus();
         }
         //on page load the job number drop down contain all job from the database
-        protected void fillDdljobNo()
+        protected void fillDdljobNo2()
         { // on page load the Drop down list is populated with all job numbers from the database
             JobNumbers myJob = new JobNumbers();
             SqlDataReader drJob = myJob.GetJobNo();
-            DDLjobNo.DataSource = drJob;
-            DDLjobNo.DataTextField = "job_number";
-            DDLjobNo.DataValueField = "job_Number";
-            DDLjobNo.DataBind();
+            DDLjobNos.DataSource = drJob;
+            DDLjobNos.DataTextField = "job_number";
+            DDLjobNos.DataValueField = "job_Number";
+            DDLjobNos.DataBind();
         }
 
         /*
-         On page load a gridview is populated that shows the job number and job decription for all jobs.
-         * The user can review the gridview to identify the job nuumber if unkown
+         On page load a gridview is populated with the job number and job decription for all jobs.
+         * The user can review the gridview to identify the job nuumber if unknown
          */
-        protected void fillJobDesc()
+        protected void fillJobDesc2()
         { // populates a gridview with all job numbers
             JobNumbers myJob = new JobNumbers();
             GVjobDesc2.DataSource = myJob.GetJobNo();
             GVjobDesc2.DataBind();
         }
 
-        /*
-         * When the user selects a job number from the drop down list the gridview updates to show that one job
-         */
-        protected void DDLjobNo_SelectedIndexChanged(object sender, EventArgs e)
+        // When the user selects a job number from the drop down list the gridview updates to show that one job number
+        protected void DDLjobNos_SelectedIndexChanged(object sender, EventArgs e)
         { // When the user selects a job number the gridview shows the description for that site
             JobNumbers myJob = new JobNumbers();
-            myJob.jobNo = Convert.ToString(DDLjobNo.SelectedValue);
+            myJob.jobNo = Convert.ToString(DDLjobNos.SelectedValue);
             GVjobDesc2.DataSource = myJob.GetJobNoFilter();
             GVjobDesc2.DataBind();
             focus();
             // If the job number is changed after the order has been created call the updateJobNo();
             if (Session["sordernbr"] != null)
             {
-                updateJobNo();
+                updateJobNo2();
             }
 
         }
 
         /*
          * When the user selects a job number from the drop down list after the orderId has been created then call
-         * the changeOrderJob() method to update the job number in the order table.
+         * the changeOrderJob() method to update the job number in the order table for that order ID.
          */
-        protected void updateJobNo()
+        protected void updateJobNo2()
         {
             Order jobNo = new Order();
             jobNo.sordNo = Convert.ToInt32(Session["sordernbr"]);
-            jobNo.jobNo = Convert.ToString(DDLjobNo.SelectedValue);
+            jobNo.jobNo = Convert.ToString(DDLjobNos.SelectedValue);
             jobNo.changeOrderJob();
-            fillOrderDetails();
+            fillOrderDetails2();
 
         }////closes the updateJobNo class
 
@@ -87,31 +86,31 @@ namespace HWWilson.HWWilson.Orders
         //if the user has selected a job they can push a button that will display all the jobs in the gridview
         protected void BtnAllJob_Click(object sender, EventArgs e)
         {
-            fillJobDesc();
+            fillJobDesc2();
         }
 
         /* When a barcode is entered it checks if the session variable is null, if it is create a new order
          * otherwise add products to the current order
          */
-        protected void NewBarcode(object sender, EventArgs e)
+        protected void NewBarcode2(object sender, EventArgs e)
         {
             if (Session["sordernbr"] == null)
             {
                 Order newOrder = new Order();
                 newOrder.ordEmp = Convert.ToInt16(Session["userid"]);
-                newOrder.jobNo = Convert.ToString(DDLjobNo.SelectedValue);
+                newOrder.jobNo = Convert.ToString(DDLjobNos.SelectedValue);
                 newOrder.CreateNewOrder();
                 (Session["sordernbr"]) = newOrder.sordNo;
-                updateOrder();
+                updateOrder2();
             }
             else
             {
-                updateOrder();
+                updateOrder2();
             }
         }
 
-
-        protected void updateOrder()
+        // adds products to the order, passes the orderID barcode and negative qty to the addOrderLines() method in the HWW.cs
+        protected void updateOrder2()
         {
             Order addOrder = new Order();
             addOrder.sordNo = Convert.ToInt32(Session["sordernbr"]);
@@ -119,14 +118,14 @@ namespace HWWilson.HWWilson.Orders
             addOrder.ordQty = -1;
             TxtBar.Text = null;
             addOrder.addOrderLines();
-            fillOrderDetails();
+            fillOrderDetails2();
 
         }////closes the updateOrder class
 
-        /* When the user seclects remove from the products gridview the product will be
+        /* When the user selects remove from the products gridview the product will be
          * removed from OrderDetails Table.
          */
-        protected void GVprodsRemoveProduct(object sender, EventArgs e)
+        protected void GVprodsRemoveProduct2(object sender, EventArgs e)
         { // Identies the row number that has been selected
             GridViewRow row = GVprods2.SelectedRow;
             Order remove = new Order();
@@ -137,11 +136,14 @@ namespace HWWilson.HWWilson.Orders
              */
             remove.removeOrderLines();
             //the product is removed and the grdiview is updated
-            fillOrderDetails();
+            fillOrderDetails2();
 
         }
 
-        protected void fillOrderDetails()
+        /*this method updates the GVprods grdiview with all the products they are returned from site
+       * each time a barcode is scanned or a products is removed from the gridview
+       */
+        protected void fillOrderDetails2()
         {
             Order dispOrder = new Order();
             dispOrder.sordNo = Convert.ToInt32(Session["sordernbr"]);
@@ -149,17 +151,23 @@ namespace HWWilson.HWWilson.Orders
             GVprods2.DataBind();
         }
 
-        protected void ButBookout_Click(object sender, EventArgs e)
+        /*the order and order details are updated each time a barcode is scanned. When the user clicks the confirm order button
+        * the order number is passed to the removeOrder() method in the HWW.cs file, if no products exists in the order details table
+        * the order ID is removed from the orders table.
+        */
+        protected void ButRturn_Click(object sender, EventArgs e)
         {
             Order remove = new Order();
             remove.sordNo = Convert.ToInt32(Session["sordernbr"]);
             remove.removeOrder();
             Response.Redirect("~/HWWilson/Orders/continue-logout.aspx");
             Session.Remove("sordernbr");
-
         }
 
-        protected void ButCancel_Click(object sender, EventArgs e)
+        /* if the user clicks the cancel order button the order ID is passed to the cancelOrder() in the HWW.cs file
+         * the order id is removed from the order table and the products are removed from the tOrderDetail table
+         */
+        protected void ButCancelreturn_Click(object sender, EventArgs e)
         {
             Order remove = new Order();
             remove.sordNo = Convert.ToInt32(Session["sordernbr"]);

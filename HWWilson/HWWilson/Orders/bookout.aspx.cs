@@ -27,9 +27,9 @@ namespace HWWilson.HWWilson.Orders
             TxtBar.Focus();
         } // Closes Page_Load
 
-        //on page load the job number drop down contains all job numbers from the database
+        //on page load the job number drop down is populated with all job numbers from the database
         protected void fillDdljobNo()
-        { // on page load the Drop down list is populated with all job numbers from the database
+        {
             JobNumbers myJob = new JobNumbers();
             SqlDataReader drJob = myJob.GetJobNo();
             DDLjobNo.DataSource = drJob;
@@ -39,8 +39,8 @@ namespace HWWilson.HWWilson.Orders
         }
 
         /*
-         On page load a gridview is populated that shows the job number and job decription for all jobs.
-         * The user can review the gridview to identify the job nuumber if unkown
+         On page load a gridview is populated with the job number and job decription for all jobs.
+         * The user can review the gridview to identify the job nuumber if unknown
          */
         protected void fillJobDesc()
         { // populates a gridview with all job numbers
@@ -64,12 +64,11 @@ namespace HWWilson.HWWilson.Orders
             {
                 updateJobNo();
             }
-
         }
 
         /*
          * When the user selects a job number from the drop down list after the orderId has been created then call
-         * the changeOrderJob() method to update the job number in the order table.
+         * the changeOrderJob() method to update the job number in the order table for that order ID.
          */
         protected void updateJobNo()
         {
@@ -113,7 +112,7 @@ namespace HWWilson.HWWilson.Orders
             }
         }
 
-
+        // adds products to the order, passes the orderID barcode and qty to the addOrderLines() method in the HWW.cs
         protected void updateOrder()
         {
             Order addOrder = new Order();
@@ -144,6 +143,9 @@ namespace HWWilson.HWWilson.Orders
 
         }
 
+        /*this method updates the GVprods grdiview with all the products they are booking out for site
+         * each time a barcode is scanned or a products is removed from the gridview
+         */
         protected void fillOrderDetails()
         {
             Order dispOrder = new Order();
@@ -152,28 +154,33 @@ namespace HWWilson.HWWilson.Orders
             GVprods.DataBind();
         }
 
+        /*the order and order details are updated each time a barcode is scanned. When the user clicks the confirm order button
+         * the order number is passed to the removeOrder() method in the HWW.cs file, if no products exists in the order details table
+         * the order ID is removed from the orders table.
+         */
         protected void ButBookout_Click(object sender, EventArgs e)
         {
             Order remove = new Order();
             remove.sordNo = Convert.ToInt32(Session["sordernbr"]);
             remove.removeOrder();
+            //closes the bookout page and take the user to the continue with another order or book out page
             Response.Redirect("~/HWWilson/Orders/continue-logout.aspx");
+            //Removes the order ID from the session variable
             Session.Remove("sordernbr");
 
         }
-
+        /* if the user clicks the cancel order button the order ID is passed to the cancelOrder() in the HWW.cs file
+         * the order id is removed from the order table and the products are removed from the tOrderDetail table
+         */
         protected void ButCancel_Click(object sender, EventArgs e)
         {
             Order remove = new Order();
             remove.sordNo = Convert.ToInt32(Session["sordernbr"]);
             remove.cancelOrder();
+            //closes the bookout page and take the user to the continue with another order or book out page
             Response.Redirect("~/HWWilson/Orders/continue-logout.aspx");
+            //Removes the order ID from the session variable
             Session.Remove("sordernbr");
         }
-
-
-
-
-
     }//closed class bookout
 }// closed namespace

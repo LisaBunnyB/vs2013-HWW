@@ -13,13 +13,13 @@ namespace HWWilson.HWWilson.Orders {
     public partial class returngoods {
         
         /// <summary>
-        /// DDLjobNo control.
+        /// DDLjobNos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLjobNo;
+        protected global::System.Web.UI.WebControls.DropDownList DDLjobNos;
         
         /// <summary>
         /// BtnAllJob control.
@@ -67,12 +67,12 @@ namespace HWWilson.HWWilson.Orders {
         protected global::System.Web.UI.WebControls.Button ButRturn;
         
         /// <summary>
-        /// ButCancel control.
+        /// ButCancelreturn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButCancel;
+        protected global::System.Web.UI.WebControls.Button ButCancelreturn;
     }
 }
