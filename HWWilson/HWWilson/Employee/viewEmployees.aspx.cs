@@ -17,9 +17,10 @@ namespace HWWilson.HWWilson.Employee
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // fills the gridview when the page loads
             fillEmployees();
         }
-
+        // this method requests all employees from the getEmployees() method in the HWW.cs and displays them in a grdiview
         protected void fillEmployees()
         { // populates a gridview with all orders numbers
             Employees allEmployees = new Employees();

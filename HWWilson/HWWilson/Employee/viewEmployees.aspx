@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="viewEmployees.aspx.cs" Inherits="HWWilson.HWWilson.Employee.viewEmployees" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div class="pagecontent">
-    <br />
+    
+    <h1><span><%:Session["name"] %></span>View all Employees</h1>
+    <%-- Creates a gridview that displays all employees ion the database --%>
     <asp:GridView ID="GVEmployee" runat="server" AutoGenerateColumns="False" CellPadding="5" BorderWidth="2px">
     <AlternatingRowStyle BackColor="#C5F08A" ForeColor="Black" />
     <Columns>
