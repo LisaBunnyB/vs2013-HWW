@@ -20,7 +20,7 @@ namespace HWWilson.HWWilson.Orders
         {
             if (!IsPostBack)
             {
-                fillDdljobNo();
+                fillDdljobNo3();
                 fillOrders();
             }
         }
@@ -33,11 +33,11 @@ namespace HWWilson.HWWilson.Orders
             GVOrders.DataBind();
         }// closes the fillorders
 
-        //on page load the job number drop down contain all job from the database
-        protected void fillDdljobNo()
-        { /* on page load the Drop down list is populated with all job numbers from the database
-           * Uses the same method as the job nuber drop dwon in bookout goods
-           */
+        /* on page load the Drop down list is populated with all job numbers from the database
+            * Uses the same method as the job number drop downn in bookout goods
+            */
+        protected void fillDdljobNo3()
+        {
             JobNumbers myJob = new JobNumbers();
             SqlDataReader drJob = myJob.GetJobNo();
             DDLjobNos.DataSource = drJob;
@@ -45,7 +45,7 @@ namespace HWWilson.HWWilson.Orders
             DDLjobNos.DataValueField = "job_Number";
             DDLjobNos.DataBind();
             DDLjobNos.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-           
+
         }
 
 
@@ -59,7 +59,7 @@ namespace HWWilson.HWWilson.Orders
             GVOrders.DataSource = myOrder.getOrdersByJob();
             GVOrders.DataBind();
             DDLjobNos.SelectedValue = null;
-         }
+        }
         //if the user click the button BtnAllOrders then the gridview displays all orders
         protected void BtnAllOrders_Click(object sender, EventArgs e)
         {
