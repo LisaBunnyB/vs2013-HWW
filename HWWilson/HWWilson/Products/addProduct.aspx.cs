@@ -19,6 +19,7 @@ namespace HWWilson
         {
             if (!IsPostBack)
             {
+                // calls the method to fill the product category drop dwon list when the page first loads
                 fillDDLProdCat();
 
             }
@@ -27,7 +28,7 @@ namespace HWWilson
 
         //on page load the stock category drop down contain all categories from the database
         protected void fillDDLProdCat()
-        { // on page load the Drop down list is populated with all job numbers from the database
+        { 
             Products allProducts = new Products();
             SqlDataReader ddlCat = allProducts.GetStockCode();
             DDLProdCat.DataSource = ddlCat;
@@ -38,9 +39,13 @@ namespace HWWilson
         }
 
         protected void addNewProduct(object sender, EventArgs e)
-        {
+        {   /* the barcode scanner cause the page to act as thought the submit product button has been clicked
+             * the page.valid will only try to pass the product details to the database once client side validation has been passed
+             */
+
             if (Page.IsValid)
             {
+                // the methos passes the product details entered by the user to the AddNewProduct() method in the HWW.cs file
                 Products addProd = new Products();
                 addProd.productName = Convert.ToString(TextProdName.Text);
                 addProd.prodBar = Convert.ToInt64(TextProdBarcode.Text);
@@ -49,16 +54,18 @@ namespace HWWilson
                 addProd.prodStockCode = Convert.ToString(TextProdStockCode.Text).ToUpper();
                 addProd.prodCatID = Convert.ToInt32(DDLProdCat.SelectedValue);
                 addProd.AddNewProduct();
-
+                //If an error occurs when adding the product to the database then display the error messgae tot the user
                 String errNumber = Convert.ToString(addProd.errNo);
 
                 if (addProd.errNo.Equals(2627) && (addProd.errMsg.Contains("Error in Adding barcode")))
                 {
+                    //Error message displayed if the barcode already exists in the database
                     LblDupBarcode.Text = "The barcode already exists in the database";
                     LblDupStockCode.Text = string.Empty;
                 }
                 else if (addProd.errNo.Equals(2627) && (addProd.errMsg.Contains("Error in Adding product")))
                 {
+                    //Error message displayed if the stockcode already exists in the database
                     LblDupStockCode.Text = "The stock code already exists in the database";
                     LblDupBarcode.Text = string.Empty;
                 }
