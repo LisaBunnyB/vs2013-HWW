@@ -24,6 +24,7 @@ namespace HWWilson
                 fillStockCat();
             }
         }
+        // when the page loads the gridview displays all products.
         protected void fillStockCat()
         { // populates a gridview with all categories
             Products myProds = new Products();
@@ -33,9 +34,9 @@ namespace HWWilson
         }
 
 
-        //on page load the stock category drop down contain all categories from the database
+        // on page load the Drop down list is populated with all product categories from the database
         protected void fillDDLStockCat()
-        { // on page load the Drop down list is populated with all product categories from the database
+        {
             Products allProducts = new Products();
             SqlDataReader ddlCat = allProducts.GetStockCode();
             DDLStockCat.DataSource = ddlCat;
@@ -45,31 +46,33 @@ namespace HWWilson
             DDLStockCat.Items.Insert(0, new ListItem(String.Empty, String.Empty));
         }
 
+        // When the user selects a product category from the Drop down list the gridview is updated to only show products of that category
         protected void DDLStockCat_SelectedIndexChanged(object sender, EventArgs e)
-        { // When the user selects a job number the gridview shows the description for that site
+        {
             Products catProd = new Products();
             catProd.prodStockCode = Convert.ToString(DDLStockCat.SelectedValue);
             gvProducts.DataSource = catProd.GetStockCat();
             gvProducts.DataBind();
-             }
-
+        }
+        // When the user clicks the button show all products the gridview updates to show all products.
         protected void BtnAllCats_Click(object sender, EventArgs e)
         {
             fillStockCat();
             TxtBarcodeSearch.Text = string.Empty;
         }
 
+        // if the user enters a product description the gridview is updated to show products with a similar name
         protected void TxtProdDesc_TextChanged(object sender, EventArgs e)
         {
-            // When the user enters a product description products like are returned
             Products prodName = new Products();
             prodName.productName = Convert.ToString(TxtProdDesc.Text);
             gvProducts.DataSource = prodName.GetProdName();
             gvProducts.DataBind();
         }
 
+        // When the user enters a barcode the matching product is returned from the database and displayed in the gridview
         protected void TxtBarcodeSearch_TextChanged(object sender, EventArgs e)
-        {   // When the user enters a barcode the matching product is returned from the database
+        {   
             Products prod = new Products();
             prod.prodBar = Convert.ToInt64(TxtBarcodeSearch.Text);
             gvProducts.DataSource = prod.GetProductByBarcode();
