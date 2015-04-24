@@ -19,19 +19,23 @@ namespace HWWilson
         {
             if (!IsPostBack)
             {
-
                 BindDataGV();
             }
         }// closes the Page_Load
 
+        // on page load populates a gridview with all products
         private void BindDataGV()
-        { // populates a gridview with all categories
+        { 
             Products myProds = new Products();
             SqlDataReader myDataReader = myProds.GetProduct();
             GVEditProducts.DataSource = myDataReader;
             GVEditProducts.DataBind();
-        }//Closes fillEditProds
+        }//Closes BindDataGV()
 
+        /* if the user clicks the cancel button from the edit mode on the gridview this cancels the edit process and displays
+         * a message that no product details have been amended.
+         * http://www.ezzylearning.com/tutorial/editing-data-using-asp-net-gridview-control
+         */
         protected void GVEditProducts_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             e.Cancel = true;
@@ -41,6 +45,7 @@ namespace HWWilson
             TxtAmendConf.Visible = true;
         }
 
+        // When the users clicks edit on a row in the gridview the row opens for edit and the mouse is placed in the barcode field
         protected void GVEditProducts_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GVEditProducts.EditIndex = e.NewEditIndex;
@@ -51,6 +56,10 @@ namespace HWWilson
 
         }
 
+        /* then the users has amended details in the gridview and selected the update button all the product details
+         * are captured from the gridview and passed to the AmendProduct() method in the HWW.cs file
+         * the details are then updated in the database
+         */
         protected void GVEditProducts_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow row = GVEditProducts.Rows[e.RowIndex];
@@ -71,7 +80,7 @@ namespace HWWilson
             changeProd.prodCatID = Convert.ToInt32(DDLCat.SelectedValue);
             changeProd.AmendProduct();
             String errNumber = Convert.ToString(changeProd.errNo);
-
+            //if the database already contains the barcode entered in the gridview an error is returned and the barcode is not updated
             if (changeProd.errNo.Equals(2627) && (changeProd.errMsg.Contains("Error in Adding barcode")))
             {
                 TxtAmendError.Text = "The barcode already exists in the database";
@@ -79,6 +88,7 @@ namespace HWWilson
                 TxtAmendConf.Visible = false;
                           
             }
+            //if the stock code already exists in the database an error is returned and the stock code is not updated
             else if (changeProd.errNo.Equals(2627) && (changeProd.errMsg.Contains("Error in Adding product")))
             {
                 TxtAmendError.Text = "The stock code already exists in the database";
