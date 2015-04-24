@@ -101,7 +101,7 @@ namespace HWWilson.App_Code
         } // ends the GetProduct method
 
         public SqlDataReader GetProductByID()
-        //this method retrieves the product matching the selected product ID from the database using stored procedure spGetProductsByID
+        //this method passes a product ID as a parameter to stored procedure spGetProductsByID and returns the product details
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -114,7 +114,7 @@ namespace HWWilson.App_Code
         } // ends the GetProductByID method
 
         public SqlDataReader CheckBarcode()
-        //this method passes a barcode to the database and confirms if it exists
+        //this method passes a barcode as a parameter to spCheckBarcodeExists in the database and confirms if it exists
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -123,24 +123,23 @@ namespace HWWilson.App_Code
             command.CommandType = CommandType.StoredProcedure;
             ConnHWW.Open();
             SqlDataReader myReader = command.ExecuteReader();
-             myReader.Read();
-             
+            myReader.Read();
             try
             {
                 errNo = Convert.ToInt32(myReader["barcode"]);
             }
-               
+
             catch
             {
                 errNo = Convert.ToInt32(myReader[""]);
             }
-            
+
             ConnHWW.Close();
-            return myReader;         
+            return myReader;
         } // ends the getOrders() method
 
         public SqlDataReader GetProductByBarcode()
-        //this method retrieves the product matching the barcode entered by the user from the database using stored procedure spGetProductsByBarcode
+        // this method passes a barcode as a parameter to spGetProductsByBarcode in the database and returns the product details
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -180,7 +179,7 @@ namespace HWWilson.App_Code
         } // ends the GetProduct method 
 
         public SqlDataReader GetStockCat()
-        //this method retrieves all products matching the category parameter from the database using stored procedure spProductsByCat
+        // This method passes a product category as a parameter to spProductsByCat and returns products in that category
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -194,7 +193,10 @@ namespace HWWilson.App_Code
         } // ends the GetProduct method
 
         public void AddNewProduct()
-        // this method is used to add a new product to the HWWilson databse using stored procedure spAddProduct
+        /*this method is used to add a new product to the HWWilson database using stored procedure spAddProduct
+         * it passes product name, barcode, min stock level, number in stock, stock code and cetegory ID as parameters
+         * if either the barcode or stock code already exist in the database then an error will be returned and the product will not be created
+         */
         {
             try
             {
@@ -222,9 +224,12 @@ namespace HWWilson.App_Code
         }// closes the AddNewProduct methods
 
         public void AmendProduct()
-        // this method is used to amend the details of a product using stored procedure spUpDateProduct
+        /* this method is used to amend the details of a product using stored procedure spUpDateProduct
+         * it passes product ID product name, barcode, min stock level, number in stock, stock code and cetegory ID as parameters
+         * if either the barcode or stock code already exist in the database then an error will be returned and the product will not be amended
+         */
         {
-             try
+            try
             {
                 SqlCommand command = new SqlCommand();
                 command.Connection = ConnHWW;
@@ -240,18 +245,21 @@ namespace HWWilson.App_Code
                 ConnHWW.Open();
                 command.ExecuteNonQuery();
             }
-             catch (SqlException sqlex)
-             {
-                 {
-                     errNo = sqlex.Number;
-                     errMsg = sqlex.Message;
-                 }
-             }
-                       ConnHWW.Close();
+            catch (SqlException sqlex)
+            {
+                {
+                    errNo = sqlex.Number;
+                    errMsg = sqlex.Message;
+                }
+            }
+            ConnHWW.Close();
         }// closes the  AmendProduct method
 
-         public void AddBarcodeToProduct()
-        // this method is used to add a new barcode to an existing product in the HWWilson databse using stored procedure spAddBarcode
+        public void AddBarcodeToProduct()
+        /*this method is used to add a new barcode to an existing product in the HWWilson database using stored procedure spAddBarcode
+         * it passes the product ID and barcode as a parameter. If the product code does not exist or the barcode already exists in the 
+         * database than the barcode will not be added to the database.
+         */
         {
             try
             {
@@ -264,10 +272,8 @@ namespace HWWilson.App_Code
                 ConnHWW.Open();
                 command.ExecuteNonQuery();
             }
-
             catch (SqlException sqlex)
             {
-
                 {
                     errNo = sqlex.Number;
                     errMsg = sqlex.Message;
@@ -314,8 +320,7 @@ namespace HWWilson.App_Code
         } // ends the GetProduct method
 
         public SqlDataReader GetJobNoFilter()
-        // this method is used to retrieve job description from the database using stroed procedure spGetJobDesc which requires a
-        // a job number to be passed as a parameter
+        // this method passes a job number as a parameter to spGetJobDesc and returns the job description for the job number              
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -371,7 +376,9 @@ namespace HWWilson.App_Code
 
 
         public void AddNewEmp()
-        // this method is used to add a new product to the HWWilson databse using stored procedure spAddProduct
+        /*this method is used to add a new employee to the HWWilson database using stored procedure spAddEmployee
+         * it passes firstname, surname, role ID, username and password as parameters.
+         */
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -386,7 +393,7 @@ namespace HWWilson.App_Code
             command.ExecuteNonQuery();
             ConnHWW.Close();
 
-        }// closes the AddNewProduct methods
+        }// closes the AddNewEmp() method
 
 
         public SqlDataReader getEmployees()
@@ -446,7 +453,7 @@ namespace HWWilson.App_Code
             set { _ordQty = value; }
         }
 
-        /* this method is used to add a new Order to the HWW databse using stored procedure spNewOrder
+        /* this method is used to add a new Order to the HWW database using stored procedure spNewOrder
          * ordernumber and job number are passed as parameters. a new order is created and the orderid is returned from
          * the stored procedure and updated in _sordNo. this is converted to a session variable in the bookout.aspx.cs
         */
@@ -484,7 +491,7 @@ namespace HWWilson.App_Code
         }// addOrderLines
 
         /* this method is used to add products to the orderDetail table in the database using the orderid created in
-        * CreateNewOrder(). The orderid, barcode and qty are passed as parameters to stored procedure spAddOrderLines3
+        * CreateNewOrder(). The orderid, barcode and qty are passed as parameters to stored procedure spAddOrderLines
         * the SP checks if the orderid and prodid(obtained by barcode in the db) exists, if it does it adds the qty to
          * the qty in the record, otherwise it adds a new record for the product
        */
@@ -492,7 +499,7 @@ namespace HWWilson.App_Code
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
-            command.CommandText = "spAddOrderLines4";
+            command.CommandText = "spAddOrderLines";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@orderId", _sordNo);
             command.Parameters.AddWithValue("@barCode", _barcode);
@@ -502,6 +509,9 @@ namespace HWWilson.App_Code
             ConnHWW.Close();
         }// addOrderLines
 
+        /* this method is used to remove products from the orderDetail table in the database when the user selects Remove
+         * on the gridview. The order ID and prod ID are passed as parameters.
+       */
         public void removeOrderLines()
         {
             SqlCommand command = new SqlCommand();
@@ -513,11 +523,10 @@ namespace HWWilson.App_Code
             ConnHWW.Open();
             command.ExecuteNonQuery();
             ConnHWW.Close();
-
         }// Closes method removeOrderLines
 
         public SqlDataReader getOrderDetails()
-        //this method retrieves all products added to the current order by seesion id the database using stored procedure spGetProducts
+        //this method is passed the order ID as a parameter and returns all orderline for the order
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -527,10 +536,10 @@ namespace HWWilson.App_Code
             ConnHWW.Open();
             SqlDataReader myReader = command.ExecuteReader(CommandBehavior.CloseConnection);
             return myReader;
-        } // ends the GetProduct method
+        } // ends the getOrderDetails method
 
         /*This method is used when the user click cancel order from the bookout page. The orderId is passed as a parameter
-         * to spCancelOrder and the orderDetail records that match the id are deleted and then the order records matchin the 
+         * to spUpdateStockLevel and the orderDetail records that match the id are deleted and then the order record matching the 
          * orderid are deleted
          */
         public void cancelOrder()
@@ -546,6 +555,9 @@ namespace HWWilson.App_Code
 
         }// Closes method cancelOrder()
 
+        /*This method is used when the user clicks confirm Order on the bookout page. The orderid is passed as a parameter 
+         * if no orderlines exists for the order the order is deleted from the database to ensure only real orders are retained
+         */
         public void removeOrder()
         {
             SqlCommand command = new SqlCommand();
@@ -557,10 +569,10 @@ namespace HWWilson.App_Code
             command.ExecuteNonQuery();
             ConnHWW.Close();
 
-        }// Closes method cancelOrderId()
+        }// Closes method removeOrder()
 
         public SqlDataReader getOrders()
-        //this method retrieves all Orers from the database using stored procedure spSelectAllOrders
+        //this method retrieves all Orders from the database using stored procedure spSelectAllOrders
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;
@@ -572,8 +584,7 @@ namespace HWWilson.App_Code
         } // ends the getOrders() method
 
         public SqlDataReader getOrdersByJob()
-        //this method retrieves all Orers from the database using stored procedure spSelectAllOrders which requires a
-        // a job number to be passed as a parameter
+        //this method passes the job number as a parameter and returns all order for the job number
         {
             SqlCommand command = new SqlCommand();
             command.Connection = ConnHWW;

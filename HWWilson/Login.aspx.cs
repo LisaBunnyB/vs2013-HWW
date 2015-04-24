@@ -15,9 +15,12 @@ namespace HWWilson
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Login1.UserName = "Trade";
+
             SetFocus(Login1.FindControl("Password"));
-            
+            if (!IsPostBack)
+            {
+                Login1.UserName = "Trade";
+            }
         }
         protected void Login1_Authenticate(object sender, EventArgs e)
         {
@@ -39,17 +42,19 @@ namespace HWWilson
                     ConnHWW.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     reader.Read();
-                    try { 
-                    userId = Convert.ToInt32(reader["userID"]);
+                    try
+                    {
+                        userId = Convert.ToInt32(reader["userID"]);
                     }
                     catch
                     {
                         userId = Convert.ToInt32(reader[""]);
                     }
-                    try {
-                    Session["roles"] = reader["roles"].ToString();
-                     }
-                    catch 
+                    try
+                    {
+                        Session["roles"] = reader["roles"].ToString();
+                    }
+                    catch
                     {
                         Session["roles"] = null;
                     }
@@ -76,7 +81,7 @@ namespace HWWilson
 
 
                         default:
-                           
+
                             FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, Login1.UserName, DateTime.Now, DateTime.Now.AddMinutes(2880), Login1.RememberMeSet, roles, FormsAuthentication.FormsCookiePath);
                             string hash = FormsAuthentication.Encrypt(ticket);
                             HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);

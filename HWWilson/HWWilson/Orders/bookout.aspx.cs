@@ -18,17 +18,16 @@ namespace HWWilson.HWWilson.Orders
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //The first time the page loads the two methods are called
             if (!IsPostBack)
             {
                 fillDdljobNo();
                 fillJobDesc();
             }
             TxtBar.Focus();
-
-
         } // Closes Page_Load
 
-        //on page load the job number drop down contain all job from the database
+        //on page load the job number drop down contains all job numbers from the database
         protected void fillDdljobNo()
         { // on page load the Drop down list is populated with all job numbers from the database
             JobNumbers myJob = new JobNumbers();
@@ -51,7 +50,7 @@ namespace HWWilson.HWWilson.Orders
         }
 
         /*
-         * When the user selects a job number from the drop down list the gridview updates to show that one job
+         * When the user selects a job number from the drop down list the gridview updates to show that one job number
          */
         protected void DDLjobNo_SelectedIndexChanged(object sender, EventArgs e)
         { // When the user selects a job number the gridview shows the description for that site
@@ -123,7 +122,7 @@ namespace HWWilson.HWWilson.Orders
             addOrder.ordQty = 1;
             TxtBar.Text = null;
             addOrder.addOrderLines();
-            fillOrderDetails();     
+            fillOrderDetails();
 
         }////closes the updateOrder class
 
@@ -141,17 +140,17 @@ namespace HWWilson.HWWilson.Orders
              */
             remove.removeOrderLines();
             //the product is removed and the grdiview is updated
-            fillOrderDetails(); 
+            fillOrderDetails();
 
-         }
+        }
 
         protected void fillOrderDetails()
         {
             Order dispOrder = new Order();
             dispOrder.sordNo = Convert.ToInt32(Session["sordernbr"]);
             GVprods.DataSource = dispOrder.getOrderDetails();
-            GVprods.DataBind(); 
-    }
+            GVprods.DataBind();
+        }
 
         protected void ButBookout_Click(object sender, EventArgs e)
         {
@@ -160,7 +159,7 @@ namespace HWWilson.HWWilson.Orders
             remove.removeOrder();
             Response.Redirect("~/HWWilson/Orders/continue-logout.aspx");
             Session.Remove("sordernbr");
-            
+
         }
 
         protected void ButCancel_Click(object sender, EventArgs e)
@@ -170,11 +169,11 @@ namespace HWWilson.HWWilson.Orders
             remove.cancelOrder();
             Response.Redirect("~/HWWilson/Orders/continue-logout.aspx");
             Session.Remove("sordernbr");
-         }
+        }
 
-        
 
-    
+
+
 
     }//closed class bookout
 }// closed namespace
