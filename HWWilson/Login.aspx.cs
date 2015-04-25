@@ -22,6 +22,8 @@ namespace HWWilson
                 Login1.UserName = "Trade";
             }
         }
+
+        // code adapted from this tutorial http://www.aspsnippets.com/Articles/Simple-User-Login-Form-example-in-ASPNet.aspx
         protected void Login1_Authenticate(object sender, EventArgs e)
         {
 
