@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-HWWilson-20150126012745.mdf;Initial Catalog=aspnet-HWWilson-20150126012745;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Bunny\\Documents\\Uni\\Year\ 3\\CI301\\HWWilson\\HWWilson\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="HWWilsonConnectionString-Web.config Connection String" description="HWWilsonConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=BUNNY-TOSH;Initial Catalog=HWWilson;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Bunny\\Documents\\Uni\\Year\ 3\\CI301\\HWWilson\\HWWilson\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HWWilsonConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="HWWConnectionString-Web.config Connection String" description="HWWConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=BUNNY-TOSH;Initial Catalog=HWW;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Bunny\\Documents\\Uni\\Year\ 3\\CI301\\HWWilson\\HWWilson\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HWWConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

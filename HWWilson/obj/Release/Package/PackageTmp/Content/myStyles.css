@@ -1,0 +1,108 @@
+﻿@import url('myStyles.css');
+
+body {
+}
+
+/*
+=============================================================================
+	Padding and Margin
+=============================================================================
+*/
+
+.marBot {
+    margin-bottom: 30px;
+}
+
+.marRight {
+    margin-right: 50px;
+}
+input, select
+{
+    margin-bottom:10px;
+}
+/*
+=============================================================================
+	Fonts & Typography
+=============================================================================
+*/
+h1 {
+    color:#000;
+}
+
+h1 span{
+    color: #97CA51;
+}
+
+h2 {
+    color: #97CA51;
+}
+
+/*
+=============================================================================
+	Header and Navigation bar
+=============================================================================
+*/
+
+
+#HWWLogo {
+    width: 75%;
+}
+/*Removes the padding from the bootom of the HWWilson logo at header*/
+.marBot {
+    margin-bottom: 0px;
+}
+
+.navbar {
+    background-color: #97ca51;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #000;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #000;
+}
+
+.nav navbar-nav li a {
+    color: #000;
+}
+
+/*
+=============================================================================
+	Main page content
+=============================================================================
+*/
+
+.largeBut {
+    background-color: #97ca51;
+    color: #ffffff;
+    height: 200px;
+    width: 250px;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:50px;
+    margin-bottom:50px;
+    margin-right:100px;
+    margin-left:100px;
+}
+
+.clear{
+    float:none;
+}
+
+
+/*
+=============================================================================
+	Footer
+=============================================================================
+*/
+footer {
+    width: 100%;
+    background-color: #97ca51;
+}
+
+#footerText {
+    width: 50%;
+    margin: auto;
+}
